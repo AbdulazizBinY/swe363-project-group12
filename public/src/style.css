@@ -1,7 +1,94 @@
 body {
-    background-color: rgb(17, 24, 39);
+    background-color: #65CCB8;
+    font-family: 'Markazi Text', serif; /* Using Poppins fonts from Google fonts */
+    font-family: 'Onest', sans-serif;
 }
 
-h1 {
-    color: rgb(192, 208, 255)
+header {
+    color: rgb(236, 206, 206);
+    background-color: #182628;
+    padding: 1em 0;
+    text-align: center;
+    border-radius: 75px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+h1 a {
+    text-decoration: none;
+    color: #F2F2F2;
+    text-decoration: none;
+    transition: color 0.6s ease; /* Transition effect for color change (set 0.6s) */
+    padding: 5px 10px; 
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline; /* Display the navbar in horizontal line */
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.6s ease; /* Transition effect for color change (set 0.6s) */
+    padding: 5px 10px; 
+}
+
+nav ul li a:hover,
+nav ul li a:focus { 
+    color: #86C323; /* Change the color on hover items */
+    border-radius: 5px;
+}
+
+.active {
+    color: #86C323;
+}
+
+.headerText {
+    color: white; /* Color of headers in the body */
+    margin-top: 75px;
+}
+
+.paraText {
+    color: #6b6e70; /* Color of the paragraphs in each header */
+    margin-left: 30px;
+}
+
+strong a {
+    text-decoration: none;
+    color: #3b945e;
+}
+
+strong {
+    color: #F2F2F2;
+}
+
+#login, #signup {
+    padding: 10px 20px;
+    margin-left: 10px;
+    background-color: #182628;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+#hero {
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+}
+
+footer {
+    background-color: #182628;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 75px;
 }
