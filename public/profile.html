@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>CourseCraft: Profile</title>
+       <!-- Other links -->
+       <link rel="preconnect" href="https://fonts.googleapis.com" />
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+       <link
+       href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500&family=Onest:wght@300&display=swap"
+       rel="stylesheet"
+       />
+       <!-- CSS links -->
+       <link href="/public/src/profileStyle.css" rel="stylesheet" />
+</head>
+<body>
+       <header>
+              
+              <h1><a href="#home">KFUPM CourseCraft</a></h1>
+              <nav>
+                     <a href="home.html">Home</a>
+                     <a href="#features">Schedule</a>
+                     <a href="../resourcesMainPage.html">Resources</a>
+                     <a href="profile.html">Profile</a>
+                     <a href="#logout" id="logout">Logout</a>
+              </nav>
+       </header>
+       
+       <div class="profileDiv">
+              <h2 class="profile">User Profile</h2>
+              <div class="profilePicture">
+                     <img src="./assets/Male user profile icon vector image png.jpeg" alt="profile Picture">
+              </div>
+              <div class="name">
+                     <div class="labelDiv"><label >Name</label></div>
+                     <input disabled type="text" value="Bader">
+              </div>
+              <div class="major">
+                     <div class="labelDiv"><label >Major</label></div>
+                     <input disabled type="text" value="SWE">
+              </div>
+              <div class="level">
+                     <div class="labelDiv"><label >Class Standing</label></div>
+                     <input disabled type="text" value="Senior">
+              </div>
+              <div class="email">
+                     <div class="labelDiv"><label >Email</label></div>
+                     <input disabled type="email" value="example@domain.tld">
+              </div>
+              <div class="password">
+                     <div class="labelDiv"><label >Password</label></div>
+                     <div class="passwordDiv">
+                            <input disabled type="password" id="password" value="0123456789">
+                            <input type="checkbox" id="toggle-password" />
+                            <label for="toggle-password">Show Password</label>
+                     </div>
+              </div>
+       </div>
+
+       <footer>
+              <p>&copy; 2023 KFUPM CourseCraft</p>
+          </footer>
+
+       <script>
+              const password = document.getElementById("password");
+              const togglePassword = document.getElementById("toggle-password");
+              togglePassword.addEventListener("click", toggleClicked);
+              function toggleClicked() {
+                     password.classList.toggle("visible");
+                     if (this.checked) {
+                            password.type = "text";
+                     } else {
+                            password.type = "password";
+                     }
+              }
+       </script>
+</body>
+
+</html>

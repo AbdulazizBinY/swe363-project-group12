@@ -1,0 +1,97 @@
+body {
+       background-color: #65ccb8;
+       font-family: 'Markazi Text', serif; /* Using Poppins fonts from Google fonts */
+       font-family: 'Onest', sans-serif;
+       color: #f2f2f2;
+       margin: 0%;
+   }
+header {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       padding: 20px;
+       font-size: 28px;
+       background-color: #43b39c;
+       margin: 0px;
+   }
+h1 {
+       margin: 0px;
+   }
+
+
+nav {
+       margin-right: 10px;
+   }
+header a {
+       color: #182628;
+       text-decoration: none;   
+}
+nav a{
+       transition: color 0.6s ease; 
+       margin-left: 20px;
+}
+nav a:hover,
+nav a:focus { 
+    color: #f2f2f2; /* Change the color on hover items */
+    border-radius: 5px;
+}
+.profileDiv{
+       text-align: center;
+}
+.profileDiv img{
+       border-radius: 50%;
+       height: 200px;
+}
+.profile{
+       text-align: center;
+       font-size: 50px;
+       margin-bottom: 5px;
+}
+input{
+       background: white;
+       border-radius: 20px;
+       border: 3px solid #40ab96;
+       color: #6b6e70;
+       width: 35%;
+       height: 70px;
+       font-size: 24px;
+       font-style: normal;
+       font-weight: 500;
+       line-height: normal;
+       margin-bottom: 10px;
+}
+.labelDiv{
+       position: relative;
+       left:475px;
+       text-align:left;
+       font-size: 26px;
+       font-style: normal;
+       font-weight: 600;
+       line-height: normal;
+}
+#password {
+       background-image: url("../assets/visible.png");
+       background-position: 97% center;
+       background-repeat: no-repeat;
+     }
+     #password.visible {
+       background-image: url("../assets/invisible.png");
+     }
+     #toggle-password {
+       display: none;
+     }
+     #toggle-password+label {
+       text-indent: -9999px;
+       display: inline-block;
+       width: 20px;
+       height: 20px;
+       margin-left: -32px;
+       cursor: pointer;
+     }
+footer{
+       padding-top: 10px;
+       padding-bottom: 10px;
+       background-color: #43b39c;
+       text-align: center;
+       margin: 0px;
+}
