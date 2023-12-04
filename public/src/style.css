@@ -1,88 +1,114 @@
 body {
     background-color: #65CCB8;
-    font-family: 'Markazi Text', serif; /* Using Poppins fonts from Google fonts */
-    font-family: 'Onest', sans-serif;
+    font-family: 'Markazi Text', serif; /* Google Fonts */
+    color: #6b6e70; /* Neutral color for text */
 }
 
 header {
-    color: rgb(236, 206, 206);
+    color: #ECCECE;
     background-color: #182628;
     padding: 1em 0;
     text-align: center;
-    border-radius: 75px;
+    border-bottom: 5px solid #86C323; /* Adding a border to the header */
 }
 
 header h1 {
     margin: 0;
+    font-size: 2em; /* Larger font size for header */
 }
 
 h1 a {
     text-decoration: none;
     color: #F2F2F2;
-    text-decoration: none;
-    transition: color 0.6s ease; /* Transition effect for color change (set 0.6s) */
-    padding: 5px 10px; 
+    transition: color 0.6s ease;
+    padding: 5px 10px;
+}
+
+h1 a:hover {
+    color: #86C323; /* Hover effect for the header link */
+}
+
+nav {
+    text-align: center; /* Center the navigation */
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    display: inline-block; /* Centering the nav items */
 }
 
 nav ul li {
-    display: inline; /* Display the navbar in horizontal line */
+    display: inline;
     margin-right: 20px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
-    transition: color 0.6s ease; /* Transition effect for color change (set 0.6s) */
-    padding: 5px 10px; 
+    transition: color 0.6s ease;
+    padding: 5px 10px;
 }
 
 nav ul li a:hover,
 nav ul li a:focus { 
-    color: #86C323; /* Change the color on hover items */
+    color: #86C323;
+    background-color: #1D3835; /* Adding background color on hover */
     border-radius: 5px;
+    padding: 7px 12px; /* Slightly larger padding on hover */
 }
 
 .active {
     color: #86C323;
+    background-color: #254E50; /* Active item background color */
+    border-radius: 5px;
+    padding: 7px 12px;
 }
 
 .headerText {
-    color: white; /* Color of headers in the body */
-    margin-top: 75px;
+    color: white;
+    margin-top: 50px; /* Reduced margin */
+    text-align: center;
 }
 
 .paraText {
-    color: #6b6e70; /* Color of the paragraphs in each header */
-    margin-left: 30px;
+    margin: 0 30px; /* Uniform margin */
+    text-align: justify; /* Justify paragraph text */
+}
+
+#hero h2,
+#hero p {
+    animation: 1s ease-out 0s 1 slideInFromLeft;
 }
 
 strong a {
     text-decoration: none;
-    color: #3b945e;
+    color: #A5EDD4;
 }
 
 strong {
-    color: #F2F2F2;
+    color: #3B945E;
 }
 
-#login, #signup {
-    padding: 10px 20px;
-    margin-left: 10px;
+button {
     background-color: #182628;
     border: none;
     color: white;
     cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+button:hover {
+    background-color: #254E50; /* Hover effect for buttons */
+    color: #ECCECE;
 }
 
 #hero {
+    background-image: linear-gradient(to right, #65CCB8, #182628); /* Gradient background */
     color: white;
     text-align: center;
-    padding: 100px 0;
+    padding: 50px 0;
+    font-size: 2em; /* Larger text in hero section */
 }
 
 footer {
@@ -90,5 +116,112 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
-    border-radius: 75px;
+    border-top: 5px solid #86C323; /* Border at the top of footer */
+}
+
+/* Smooth scrolling animation for anchors */
+a {
+    scroll-behavior: smooth;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Styling for modern buttons */
+button {
+    border-radius: 25px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Responsive nav menu */
+@media (max-width: 768px) {
+    nav ul {
+        display: block;
+        text-align: center;
+    }
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+.headerText {
+    margin-top: 30px;
+}
+
+.paraText {
+    margin: 0 15px;
+    }
+
+.profileDiv{
+    text-align: center;
+}
+.profileDiv img{
+    border-radius: 50%;
+    height: 200px;
+}
+.profile{
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 5px;
+}
+input{
+    background: white;
+    border-radius: 20px;
+    border: 3px solid #40ab96;
+    color: #6b6e70;
+    width: 35%;
+    height: 70px;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+
+.labelDiv{
+    position: relative;
+    left:475px;
+    text-align:left;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#password {
+    background-image: url("../assets/visible.png");
+    background-position: 97% center;
+    background-repeat: no-repeat;
+}
+
+#password.visible {
+    background-image: url("../assets/invisible.png");
+}
+
+#toggle-password {
+    display: none;
+}
+
+#toggle-password+label {
+    text-indent: -9999px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: -32px;
+    cursor: pointer;
 }
