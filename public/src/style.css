@@ -2,6 +2,7 @@ body {
     background-color: #65CCB8;
     font-family: 'Markazi Text', serif; /* Google Fonts */
     color: #6b6e70; /* Neutral color for text */
+    margin: 0;
 }
 
 header {
