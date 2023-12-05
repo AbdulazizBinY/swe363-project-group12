@@ -1,7 +1,6 @@
 body {
-    background-color: #65CCB8;
-    font-family: 'Markazi Text', serif; /* Google Fonts */
-    color: #6b6e70; /* Neutral color for text */
+    background-image: linear-gradient(to right, #65CCB8, #579aa5);
+    font-family: 'Onest', sans-serif;
     margin: 0;
 }
 
@@ -10,12 +9,12 @@ header {
     background-color: #182628;
     padding: 1em 0;
     text-align: center;
-    border-bottom: 5px solid #86C323; /* Adding a border to the header */
+    border-bottom: 5px solid #86C323;
 }
 
 header h1 {
     margin: 0;
-    font-size: 2em; /* Larger font size for header */
+    font-size: 2em;
 }
 
 h1 a {
@@ -26,17 +25,17 @@ h1 a {
 }
 
 h1 a:hover {
-    color: #86C323; /* Hover effect for the header link */
+    color: #86C323;
 }
 
 nav {
-    text-align: center; /* Center the navigation */
+    text-align: center;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
-    display: inline-block; /* Centering the nav items */
+    display: inline-block;
 }
 
 nav ul li {
@@ -52,34 +51,74 @@ nav ul li a {
 }
 
 nav ul li a:hover,
-nav ul li a:focus { 
+nav ul li a:focus {
     color: #86C323;
-    background-color: #1D3835; /* Adding background color on hover */
+    background-color: #1D3835;
     border-radius: 5px;
-    padding: 7px 12px; /* Slightly larger padding on hover */
+    padding: 7px 12px;
 }
 
 .active {
     color: #86C323;
-    background-color: #254E50; /* Active item background color */
+    background-color: #254E50;
     border-radius: 5px;
     padding: 7px 12px;
 }
 
 .headerText {
     color: white;
-    margin-top: 50px; /* Reduced margin */
+    margin-top: 50px;
     text-align: center;
 }
 
 .paraText {
-    margin: 0 30px; /* Uniform margin */
-    text-align: justify; /* Justify paragraph text */
+    margin: 30px;
+    padding: 20px;
+    text-align: justify;
 }
 
 #hero h2,
 #hero p {
-    animation: 1s ease-out 0s 1 slideInFromLeft;
+    overflow: hidden;
+    border-right: .15em solid linear-gradient(to right, #65CCB8, #579aa5);
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: typing 3.5s steps(30, end) forwards, blink-caret .75s step-end forwards;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: linear-gradient(to right, #65CCB8, #579aa5);
+    }
+}
+
+#hero h2 {
+    animation: typing 3.5s steps(30, end) forwards,
+        blink-caret .75s step-end forwards;
+}
+
+#hero p {
+    animation: typing 5s steps(50, end) forwards,
+        blink-caret .75s step-end 5s forwards;
+    animation-delay: 3.5s;
+    /* Delay so it starts after the h2 */
 }
 
 strong a {
@@ -88,7 +127,7 @@ strong a {
 }
 
 strong {
-    color: #3B945E;
+    color: rgb(14, 139, 158);
 }
 
 button {
@@ -96,20 +135,19 @@ button {
     border: none;
     color: white;
     cursor: pointer;
-    transition: background-color 0.3s ease; 
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #254E50; /* Hover effect for buttons */
+    background-color: #254E50;
     color: #ECCECE;
 }
 
 #hero {
-    background-image: linear-gradient(to right, #65CCB8, #182628); /* Gradient background */
     color: white;
     text-align: center;
     padding: 50px 0;
-    font-size: 2em; /* Larger text in hero section */
+    font-size: 2em;
 }
 
 footer {
@@ -117,26 +155,13 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
-    border-top: 5px solid #86C323; /* Border at the top of footer */
+    border-top: 5px solid #86C323;
 }
 
-/* Smooth scrolling animation for anchors */
 a {
     scroll-behavior: smooth;
 }
 
-@keyframes slideInFromLeft {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-/* Styling for modern buttons */
 button {
     border-radius: 25px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -154,6 +179,7 @@ button:hover {
         display: block;
         text-align: center;
     }
+
     nav ul li {
         display: block;
         margin: 10px 0;
@@ -166,21 +192,24 @@ button:hover {
 
 .paraText {
     margin: 0 15px;
-    }
+}
 
-.profileDiv{
+.profileDiv {
     text-align: center;
 }
-.profileDiv img{
+
+.profileDiv img {
     border-radius: 50%;
     height: 200px;
 }
-.profile{
+
+.profile {
     text-align: center;
     font-size: 50px;
     margin-bottom: 5px;
 }
-input{
+
+input {
     background: white;
     border-radius: 20px;
     border: 3px solid #40ab96;
@@ -194,10 +223,10 @@ input{
     margin-bottom: 10px;
 }
 
-.labelDiv{
+.labelDiv {
     position: relative;
-    left:33%;
-    text-align:left;
+    left: 33%;
+    text-align: left;
     font-size: 26px;
     font-style: normal;
     font-weight: 600;
