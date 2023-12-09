@@ -1,8 +1,6 @@
 body {
-    font-family: 'Markazi Text', serif;
+    background-image: linear-gradient(to right, #65CCB8, #579aa5);
     font-family: 'Onest', sans-serif;
-    background-color: #65CCB8;
-    color: #6b6e70;
     margin: 0;
 }
 
