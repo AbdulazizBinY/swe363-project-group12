@@ -5,41 +5,72 @@ body {
     padding: 20px;
     color: #333;
 }
+
 .container {
     max-width: 700px;
     margin: 30px auto;
     padding: 20px;
     background: #fff;
 }
-h1, h2 {
+
+h1,
+h2 {
     color: #333;
 }
+
 h1 {
     font-size: 24px;
 }
+
 h2 {
     font-size: 20px;
     margin-top: 20px;
 }
+
 p {
     margin: 10px 0;
 }
+
 ul {
     margin: 10px 0;
     padding-left: 20px;
 }
+
 a {
     color: #0645ad;
     text-decoration: none;
 }
+
 a:hover {
     text-decoration: underline;
 }
+
 .terms-header {
     color: #fff;
     padding: 10px 0;
     text-align: center;
 }
+
 .terms-header h1 {
     margin: 0;
+}
+
+.back-button-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #57BA98;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.back-button:hover {
+    background-color: #62c449;
+    text-decoration: none;
 }

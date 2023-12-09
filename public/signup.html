@@ -1,62 +1,85 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sign Up Page</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500&family=Onest:wght@300&display=swap"
-            rel="stylesheet" />
-        <link rel="stylesheet" href="css/auth.css">
-    </head>
-    <body>
-        <header>
-            <nav>
-                <a href="home.html"><h1 style="font-size: 40px;">Welcome to
-                        KFUPM CourseCraft</h1></a>
-            </nav>
-        </header>
-        <div class="center-container">
-            <div class="login-container">
-                <h2>Sign Up</h2>
-                <form>
-                    <input type="text" class="form-control"
-                        placeholder="First Name"
-                        required>
-                    <input type="text" class="form-control"
-                        placeholder="Last Name"
-                        required>
-                    <input type="email" class="form-control"
-                        placeholder="E-mail"
-                        required>
-                    <input type="text" class="form-control"
-                        placeholder="KFUPM ID"
-                        required>
-                    <input type="password" class="form-control"
-                        placeholder="Password"
-                        required>
-                    <input type="password" class="form-control"
-                        placeholder="Confirm Password"
-                        required>
 
-                    <!-- Terms and Conditions Checkbox -->
-                    <div class="checkbox-container">
-                        <label>
-                            <input type="checkbox" required>
-                            I agree to the <a href="terms.html">Terms and
-                                Conditions</a>
-                        </label>
-                    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500&family=Onest:wght@300&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/auth.css">
+    <!-- Link to JS file -->
+    <script src="js/script.js" defer></script>
+</head>
 
-                    <button type="submit" class="login-btn">SIGN UP</button>
-                </form>
-                <div class="account-action">
-                    <span>Already have an account?</span>
-                    <a href="login.html">Login</a>
+<body>
+    <header>
+        <nav>
+            <a href="home.html">
+                <h1 style="font-size: 40px;">Welcome to
+                    KFUPM CourseCraft</h1>
+            </a>
+        </nav>
+    </header>
+    <div class="center-container">
+        <div class="login-container">
+            <h2>Sign Up</h2>
+            <form>
+                <div class="input-icon-container">
+                    <i class="fa fa-user icon input-icon"></i>
+                    <input type="text" class="form-control input-field" placeholder="First Name" required>
                 </div>
+
+                <div class="input-icon-container">
+                    <i class="fa fa-user icon input-icon"></i>
+                    <input type="text" class="form-control input-field" placeholder="Last Name" required>
+                </div>
+
+                <div class="input-icon-container">
+                    <i class="fa fa-envelope icon input-icon"></i>
+                    <input type="email" class="form-control input-field" placeholder="E-mail" required>
+                </div>
+
+                <div class="input-icon-container">
+                    <i class="fa fa-id-card icon input-icon"></i>
+                    <input type="text" class="form-control input-field" placeholder="KFUPM ID" required>
+                </div>
+
+                <div class="input-icon-container">
+                    <i class="fa fa-lock icon input-icon"></i>
+                    <input type="password" id="password" class="form-control input-field" placeholder="Password" required
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                        title="Must contain at least one number, one uppercase letter, one lowercase letter, and at least 8 or more characters">
+                    <i class="fa fa-eye-slash toggle-password" onclick="togglePasswordVisibility('password')"></i>
+                </div>
+                <small id="passwordHint">Password must be at least 8 characters long, include an uppercase letter, a
+                    lowercase letter, and a number.</small>
+
+                <div class="input-icon-container">
+                    <i class="fa fa-lock icon input-icon"></i>
+                    <input type="password" id="confirmPassword" class="form-control input-field" placeholder="Confirm Password"
+                        required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                </div>
+                <!-- Terms and Conditions Checkbox -->
+                <div class="checkbox-container">
+                    <label>
+                        <input type="checkbox" required>
+                        I agree to the <a href="terms.html">Terms and
+                            Conditions</a>
+                    </label>
+                </div>
+
+                <button type="submit" class="login-btn">SIGN UP</button>
+            </form>
+            <div class="account-action">
+                <span>Already have an account?</span>
+                <a href="login.html">Login</a>
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>
