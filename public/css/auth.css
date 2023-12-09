@@ -27,6 +27,14 @@ nav a:hover {
     padding: 5px 10px;
 }
 
+small {
+    display: block; 
+    margin-top: 5px; 
+    color: #6c757d;
+    font-size: 0.875em; 
+    font-style: italic;
+}
+
 .center-container {
     display: flex;
     justify-content: center;
@@ -53,9 +61,32 @@ nav a:hover {
     border-bottom: 2px solid #ccc;
     display: block;
     width: 100%;
-    padding: 10px;
+    padding-left: 30px;
     font-size: 16px;
     border-radius: 0;
+}
+
+.input-icon-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.icon {
+    font-size: 16px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #555;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #555;
+    cursor: pointer;
 }
 
 .form-control:focus {
