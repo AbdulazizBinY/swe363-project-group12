@@ -13,19 +13,18 @@ document.getElementById('password').addEventListener('input', function () {
 function togglePasswordVisibility(inputId) {
     var passwordInput = document.getElementById(inputId);
     var toggleIcon = passwordInput.nextElementSibling;
-    var passwordIcon = passwordInput.previousElementSibling;
 
     if (passwordInput.type === 'password') {
         passwordInput.type = 'text';
         toggleIcon.classList.remove('fa-eye-slash');
         toggleIcon.classList.add('fa-eye');
-        passwordIcon.style.display = 'none'; // Hide password icon
     } else {
         passwordInput.type = 'password';
         toggleIcon.classList.remove('fa-eye');
         toggleIcon.classList.add('fa-eye-slash');
     }
 }
+
 
 // To hides icons when the user is typing in both login and signup pages.
 document.addEventListener('DOMContentLoaded', function () {
@@ -40,3 +39,17 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+function showLoader() {
+    document.getElementById('loader').style.display = 'flex';
+}
+
+function hideLoader() {
+    document.getElementById('loader').style.display = 'none';
+}
+
+// Call hideLoader when the page finishes loading
+window.onload = hideLoader;
+
+// Show the loader when submitting the form
+document.getElementById('loginForm').addEventListener('submit', showLoader);

@@ -13,56 +13,70 @@
     <link rel="stylesheet" href="css/auth.css">
     <!-- Link to JS file -->
     <script src="js/script.js" defer></script>
+    <script src="js/signup.js" defer></script>
 </head>
 
 <body>
     <header>
         <nav>
             <a href="home.html">
-                <h1 style="font-size: 40px;">Welcome to
+                <h1>Welcome to
                     KFUPM CourseCraft</h1>
             </a>
         </nav>
     </header>
+
+    <div id="loader" class="loader-container">
+        <div class="loader"></div>
+    </div>
+
     <div class="center-container">
         <div class="login-container">
             <h2>Sign Up</h2>
-            <form>
+            <form id="signupForm">
                 <div class="input-icon-container">
                     <i class="fa fa-user icon input-icon"></i>
-                    <input type="text" class="form-control input-field" placeholder="First Name" required>
+                    <input type="text" name="firstName" class="form-control input-field" placeholder="First Name"
+                        required>
                 </div>
 
                 <div class="input-icon-container">
                     <i class="fa fa-user icon input-icon"></i>
-                    <input type="text" class="form-control input-field" placeholder="Last Name" required>
+                    <input type="text" name="lastName" class="form-control input-field" placeholder="Last Name"
+                        required>
                 </div>
 
                 <div class="input-icon-container">
                     <i class="fa fa-envelope icon input-icon"></i>
-                    <input type="email" class="form-control input-field" placeholder="E-mail" required>
+                    <input type="email" name="email" class="form-control input-field" placeholder="E-mail" required>
                 </div>
 
                 <div class="input-icon-container">
                     <i class="fa fa-id-card icon input-icon"></i>
-                    <input type="text" class="form-control input-field" placeholder="KFUPM ID" required>
+                    <input type="text" name="kfupmId" class="form-control input-field" placeholder="KFUPM ID" required
+                        pattern="20\d{7}" minlength="9" maxlength="9"
+                        title="KFUPM ID must be 9 digits long and start with '20'">
                 </div>
 
                 <div class="input-icon-container">
                     <i class="fa fa-lock icon input-icon"></i>
-                    <input type="password" id="password" class="form-control input-field" placeholder="Password" required
-                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    <input type="password" name="password" id="password" class="form-control input-field"
+                        placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                         title="Must contain at least one number, one uppercase letter, one lowercase letter, and at least 8 or more characters">
                     <i class="fa fa-eye-slash toggle-password" onclick="togglePasswordVisibility('password')"></i>
                 </div>
+
                 <small id="passwordHint">Password must be at least 8 characters long, include an uppercase letter, a
                     lowercase letter, and a number.</small>
 
                 <div class="input-icon-container">
                     <i class="fa fa-lock icon input-icon"></i>
-                    <input type="password" id="confirmPassword" class="form-control input-field" placeholder="Confirm Password"
-                        required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                    <input type="password" id="confirmPassword" class="form-control input-field"
+                        placeholder="Confirm Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                    <i class="fa fa-eye-slash toggle-password"
+                        onclick="togglePasswordVisibility('confirmPassword')"></i>
                 </div>
+
                 <!-- Terms and Conditions Checkbox -->
                 <div class="checkbox-container">
                     <label>
@@ -80,6 +94,17 @@
             </div>
         </div>
     </div>
+    <!-- Error Modal Structure -->
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeErrorModal()">&times;</span>
+            <p id="errorText">Error message will be displayed here</p>
+        </div>
+    </div>
+
+    <script src="js/script.js" defer></script>
+    <script src="js/login.js" defer></script>
+
 </body>
 
 </html>

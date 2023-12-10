@@ -20,10 +20,10 @@ const puppeteer = require('puppeteer');
     // myArray.push(document.querySelectorAll('#tab-buggy div:nth-child(1) table:nth-child(1) tr:nth-child(3) td:nth-child(1) a '))
     // myArray.push(document.querySelectorAll('#tab-buggy div:nth-child(1) table:nth-child(1) tr:nth-child(3) td:nth-child(3) '))
     // myArray.push(document.querySelectorAll('#tab-buggy div:nth-child(1) table:nth-child(1) tr:nth-child(3) td:nth-child(6) '))
-     let element1 = document.querySelectorAll('#tab-buggy div:nth-child(1) table:nth-child(1) tr:nth-child(3) td:nth-child(1) a ')  //shourcut 
-     let element2= document.querySelectorAll('#tab-buggy div:nth-child(1) table:nth-child(1) tr:nth-child(3) td:nth-child(3) ');    // full name
-     let element3= document.querySelectorAll('#tab-buggy div:nth-child(1) table:nth-child(1) tr:nth-child(3) td:nth-child(6) ');    //credit 
-   
+    let element1 = document.querySelectorAll('#tab-buggy div:nth-child(1) table:nth-child(1) tr:nth-child(3) td:nth-child(1) a ')  //shourcut 
+    let element2 = document.querySelectorAll('#tab-buggy div:nth-child(1) table:nth-child(1) tr:nth-child(3) td:nth-child(3) ');    // full name
+    let element3 = document.querySelectorAll('#tab-buggy div:nth-child(1) table:nth-child(1) tr:nth-child(3) td:nth-child(6) ');    //credit 
+
 
     //original 
     let element = document.querySelectorAll('#tab-buggy div:nth-child(1) table:nth-child(1) tr:nth-child(3) td:nth-child(1) a ');
@@ -37,11 +37,11 @@ const puppeteer = require('puppeteer');
     //   extractedData.push(item.textContent);
     // });
 
-      // extractedData.push(element1.textContent);
-      // extractedData.push(element2.textContent);
-      // extractedData.push(element3.textContent);
+    // extractedData.push(element1.textContent);
+    // extractedData.push(element2.textContent);
+    // extractedData.push(element3.textContent);
 
-      //orginal 
+    //orginal 
     // element.forEach(item => {
     //   console.log("yes")
     //   extractedData.push(item.textContent);
@@ -53,14 +53,14 @@ const puppeteer = require('puppeteer');
     });
 
     return extractedData;
-    
-    return element 
+
+    return element
 
 
 
     // Example: Extracting text content from an element with class 'example-class'
     // const element = document.querySelector('.fw-bold');
-    
+
     // return element ? element.textContent : null;
   });
 
