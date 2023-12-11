@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Forgot Password</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500&family=Onest:wght@300&display=swap"
-            rel="stylesheet" />
-        <link rel="stylesheet" href="css/auth.css">
-    </head>
-    <body>
-        <header>
-            <nav>
-                <a href="home.html"><h1 style="font-size: 60px;">Welcome to
-                        KFUPM CourseCraft</h1></a>
-            </nav>
-        </header>
-        <div class="center-container">
-            <div class="login-container">
-                <h2>Forgot Password</h2>
-                <form action="password-reset-link.html" method="POST">
-                    <input type="email" class="form-control"
-                        placeholder="Enter your email"
-                        required>
-                    <button type="submit" class="login-btn">Send Reset Link</button>
-                </form>
-                <div class="account-action">
-                    <span>Remembered your password?</span>
-                    <a href="login.html">Login</a>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500&family=Onest:wght@300&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="home.html">
+                <h1>Welcome to
+                    KFUPM CourseCraft</h1>
+            </a>
+        </nav>
+    </header>
+    <div class="center-container">
+        <div class="login-container">
+            <h2>Forgot Password</h2>
+            <form action="password-reset-link.html" method="POST">
+                <div class="input-icon-container">
+                    <i class="fa fa-envelope icon input-icon"></i>
+                    <input type="email" name="email" class="form-control input-field" placeholder="E-mail" required>
                 </div>
+                <button type="submit" class="login-btn">Send Reset Link</button>
+            </form>
+            <div class="account-action">
+                <span>Remembered your password?</span>
+                <a href="login.html">Login</a>
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>

@@ -13,6 +13,10 @@ header {
     border-bottom: 5px solid #86C323;
 }
 
+h1 {
+    font-size: 40px;
+}
+
 nav a {
     color: white;
     text-decoration: none;
@@ -27,13 +31,20 @@ nav a:hover {
     padding: 5px 10px;
 }
 
-small {
-    display: block; 
-    margin-top: 5px; 
+.input-icon-container.password-input {
+    margin-bottom: 10px;
+}
+
+#passwordHint {
     color: #6c757d;
-    font-size: 0.875em; 
+    font-size: 0.875em;
     font-style: italic;
 }
+
+.input-icon-container.confirm-password-input {
+    margin-top: 100px;
+}
+
 
 .center-container {
     display: flex;
@@ -55,7 +66,7 @@ small {
 }
 
 .form-control {
-    margin-bottom: 20px;
+    margin-bottom: 35px;
     background: transparent;
     border: none;
     border-bottom: 2px solid #ccc;
@@ -68,7 +79,7 @@ small {
 
 .input-icon-container {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .icon {
@@ -151,4 +162,82 @@ small {
 .account-action a {
     color: #57BA98;
     text-decoration: none;
+}
+
+.error-message {
+    color: red;
+    background-color: #ffecec;
+    border: 1px solid red;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    display: none;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 5px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
