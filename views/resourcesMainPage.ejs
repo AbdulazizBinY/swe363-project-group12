@@ -19,6 +19,12 @@
 
         a {
             color: #538e10;
+            /* font-size: 20rem; */
+        }
+
+        .course-grid li a {
+            color: #6b775e;
+            font-size: 1.5em;
         }
     </style>
 </head>
@@ -27,13 +33,12 @@
     <header>
 
         <h1><a href="/">KFUPM CourseCraft</a></h1>
-
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/schedule">Schedule</a></li>
                 <li><a class="active" href="#resources">Resources</a></li>
-                <% if (user) { %>
+                <% if (allCourses[2]) { %>
                     <!-- Content to display if the user is logged in -->
                     <li><a href="/profile">Profile</a></li>
                     <li><a href="/logout">Log Out</a></li>
@@ -45,6 +50,7 @@
             </ul>
 
         </nav>
+        
 
     </header>
 
@@ -91,7 +97,20 @@
 
 
         <h1>Major Courses: </h1>
+        <% allCourses[0].forEach(item => { %>
+           <li> <a href="<%= item.resources[0] %>"><%= item.shortcut %></a></li>
+           <br>
+           
+          <% }); %>
+
+
         <h1>General Courses: </h1>
+        <% allCourses[1].forEach(item => { %>
+           <li> <a href="<%= item.resources[0] %>"><%= item.shortcut %></a></li>
+            <br>
+            <!-- <li><%= item.shortcut %></li> -->
+           
+          <% }); %>
     </section>
 
 

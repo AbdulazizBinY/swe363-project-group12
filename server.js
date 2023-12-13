@@ -1,7 +1,9 @@
-const express = require('express');
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const signupRoutes = require('./routes/signupRoutes');
-const loginRoutes = require('./routes/loginRoutes');
+const express = require("express");
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
+const { MongoClient, ServerApiVersion } = require("mongodb");
+const signupRoutes = require("./routes/signupRoute");
+const loginRoutes = require("./routes/loginRoute");
 
 // Initialize Express app
 const app = express();
@@ -54,70 +56,50 @@ app.get("/resourceAddingForm", (req, res) => {
     res.render("resourceAddingForm", { user: req.session.user });
 });
 
-
-app.post("/fun", (req,res) => {
-    try {
-        // app.set('view engine', 'ejs');
-        
-
-        
-        await client.connect();
-        const db = client.db("KFUPMCC");
-        const courses = db.collection("Courses");
-
-        // const majorCourses =  await courses.find({shortcut:"ICS"})
-         const majorCourses =  await courses.find({
-            shortcut: { $regex: /^(ICS|SWE)/ }
-          }).toArray();
-
-          const nonIcsSweCourses = await collection.find({ courseName: { $regex: /^(?!ICS|SWE)/i} }).toArray();
-          res.json()
-        } catch (error) {
-            console.error('Error fetching data:', error);
-            res.status(500).send('Internal Server Error');
-        } finally {
-            await client.close();
-        }
-})
-
-// app.get('/resourcesMainPage', (req,res) => {
-//     //res.sendFile(__dirname + '/public/resourcesMainPage.html');
-//     try {
-
-//         app.set('view engine', 'ejs');
-//         // Connect to MongoDB
-//          client.connect();
-    
-//         // Access the specific collection (replace 'your_collection' with the actual collection name)
-//         const db = client.db("KFUPMCC");
-//         const users = db.collection("Courses");
-    
-//         // Fetch data from MongoDB
-//         const majorCourses =  collection.find({ $or: [{ shortcut: 'ICS' }, { shortcut: 'SWE' }] }).toArray();
-    
-//         // Render HTML with the fetched data
-//         res.render('resoursesMain', { majorCourses });
-//       } catch (error) {
-//         console.error('Error fetching data:', error);
-//         res.status(500).send('Internal Server Error');
-//       } finally {
-//         // Close the MongoDB connection
-//          client.close();
-//       }
-
-
-
-// }); 
-
 // resourcesList route
 app.get("/resourcesList", (req, res) => {
     res.render("resourcesList", { user: req.session.user });
 });
 
 // resourcesMainPage route
-app.get("/resourcesMainPage", (req, res) => {
-    res.render("resourcesMainPage", { user: req.session.user });
+// app.get("/resourcesMainPage", (req, res) => {
+//     res.render("resourcesMainPage", { user: req.session.user });
+// });
+
+app.get('/resourcesMainPage', async (req, res) => {
+    try {
+        const db = client.db("KFUPMCC");
+        const coursesCollection = db.collection("Courses");
+
+        //const courses = await coursesCollection.find().toArray();
+
+        //const majorCourses =  await courses.find({shortcut:"ICS"})
+         const majorCourses =  await coursesCollection.find({
+            shortcut: { $regex: /^(ICS|SWE)/ }
+          }).toArray();
+        //   { $regex: /^(?!ICS|SWE)/i}
+        const nonMajorCourses = await coursesCollection.find({ shortcut: { $regex: /^(?!ICS|SWE)/i} }).toArray();
+
+          let allCourses= [majorCourses,nonMajorCourses,req.session.user]
+
+        // Render the profile page with the user's data
+        res.render('resourcesMainPage', {  allCourses });
+    } catch (error) {
+        console.error('Error retrieving user profile:', error);
+        res.status(500).send('Internal Server Error');
+    }
 });
+
+
+
+
+
+
+
+
+
+
+
 
 // schedule route
 app.get("/schedule", (req, res) => {
@@ -173,11 +155,6 @@ async function run() {
         await client.connect();
         console.log("Connected to MongoDB");
 
-        app.use('/signup', signupRoutes);
-        app.use('/login', loginRoutes);
-     // app.use('/forgot-password', forgotPasswordRoutes(client)); // use the new route
-
-        // Start the Express server
         const port = process.env.PORT || 3000;
         app.listen(port, () =>
             console.log(`Server running on http://localhost:${port}`)
@@ -191,5 +168,4 @@ async function run() {
         process.exit(0);
     });
 }
-
 run().catch(console.dir);
