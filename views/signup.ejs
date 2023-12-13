@@ -32,6 +32,9 @@
 
     <div class="center-container-signup">
         <div class="login-container">
+            <div class="signup-image-container">
+                <img src="assets/Sign-Up.avif" alt="Sign Up Image">
+            </div>
             <h2>Sign Up</h2>
             <form id="signupForm">
                 <div class="input-icon-container">
@@ -58,25 +61,38 @@
                         title="KFUPM ID must be 9 digits long and start with '20'">
                 </div>
 
-                <div class="input-icon-container">
-                    <p>Please select your major:</p> 
-                    <input type="radio" id="SWE" name="major" value="Software Engineer">
-                    <label for="SWE">Software Engineer</label><br>
-                    <input type="radio" id="CS" name="major" value="Computer Science">
-                    <label for="CS">Computer Science</label><br><br>
-                </div>
+                <fieldset class="input-icon-container">
+                    <legend>Please select your major:</legend> 
+                    <div class="radio-option">
+                        <input type="radio" id="SWE" name="major" value="Software Engineer">
+                        <label for="SWE">Software Engineer</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="CS" name="major" value="Computer Science">
+                        <label for="CS">Computer Science</label>
+                    </div>
+                </fieldset>
                 
-                <div class="input-icon-container">
-                    <p>Please select your class level:</p>
-                    <input type="radio" id="Freshmen" name="classLevel" value="Freshmen">
-                    <label for="Freshmen">Freshmen (FR)</label><br>
-                    <input type="radio" id="Sophomore" name="classLevel" value="Sophomore">
-                    <label for="Sophomore">Sophomore (SO)</label><br>  
-                    <input type="radio" id="Junior" name="classLevel" value="Junior">
-                    <label for="Junior">Junior (JR)</label><br>
-                    <input type="radio" id="Senior" name="classLevel" value="Senior">
-                    <label for="Senior">Senior (SR)</label><br><br>
-                </div>                
+                <fieldset class="input-icon-container">
+                    <legend>Please select your class level:</legend>
+                    <div class="radio-option">
+                        <input type="radio" id="Freshmen" name="classLevel" value="Freshmen">
+                        <label for="Freshmen">Freshmen (FR)</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="Sophomore" name="classLevel" value="Sophomore">
+                        <label for="Sophomore">Sophomore (SO)</label>  
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="Junior" name="classLevel" value="Junior">
+                        <label for="Junior">Junior (JR)</label>  
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="Senior" name="classLevel" value="Senior">
+                        <label for="Senior">Senior (SR)</label>  
+                    </div>
+                </fieldset>
+
 
                 <div class="input-icon-container">
                     <i class="fa fa-lock icon input-icon"></i>
@@ -98,7 +114,7 @@
                 <div class="checkbox-container">
                     <label>
                         <input type="checkbox" required>
-                        I agree to the <a href="/public/terms.html">Terms and
+                        I agree to the <a href="/terms">Terms and
                             Conditions</a>
                     </label>
                 </div>
