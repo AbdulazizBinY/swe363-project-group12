@@ -1,0 +1,125 @@
+body {
+    font-family: 'Markazi Text', serif;
+    font-family: 'Onest', sans-serif;
+    background-color: #65CCB8;
+    color: #6b6e70;
+    margin: 0;
+}
+
+header {
+    width: 100%;
+    color: #ECCECE;
+    background-color: #182628;
+    padding: 1em 0;
+    text-align: center;
+    border-bottom: 5px solid #86C323;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.6s ease;
+    padding: 5px 10px;
+}
+
+nav a:hover {
+    color: #5cb85c;
+    text-decoration: none;
+    transition: color 0.6s ease;
+    padding: 5px 10px;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+    color: #333;
+    text-align: center;
+}
+
+.form-control {
+    margin-bottom: 20px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 0;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #7a57d1;
+}
+
+.login-btn {
+    background-color: #57BA98;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.login-btn:hover {
+    background-color: #62c449;
+}
+
+.checkbox-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.checkbox-container label {
+    margin-right: 10px;
+}
+
+.checkbox-container .forgot-password {
+    margin-left: 10px;
+    color: #57BA98;
+    text-decoration: none;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 5px;
+    transform: scale(0.8);
+}
+
+.checkbox-container a {
+    color: #57BA98;
+    text-decoration: none;
+}
+
+.account-action {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.account-action span {
+    color: #333;
+    margin-right: 5px;
+}
+
+.account-action a {
+    color: #57BA98;
+    text-decoration: none;
+}

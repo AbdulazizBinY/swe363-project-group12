@@ -3,9 +3,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link href="/public/src/style.css" rel="stylesheet">
+    <link
+            href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;700&display=swap"
+            rel="stylesheet"> <!-- Google Font -->
+        <!-- Link to CSS file -->
+        <link rel="stylesheet" href="/public/src/style.css">
+        <!-- Link to JS file -->
+        <script src="/public/src/script.js" defer></script>
 
     <style>
+        body {
+            font-family: 'Markazi Text', serif;
+        }
         div {
             display: flex;
             justify-content: center;
@@ -49,9 +58,20 @@
     </style>
 </head>
 <body>
-    <h1 style="text-align: center; margin-bottom: 110px;">Welcome to KFUPM CourseCraft </h1>
+
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html" style="font-size: 60px;">Welcome to KFUPM CourseCraft</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    
+    
     <div>
-        <form action="" method="post" style="background-color: #57BA98;">
+        <form action="" method="post" style="background-color: #57BA98; margin-top: 170px;">
             <lable for="FnameInput">First Name</lable>
             <input type="text" id="FnameInput"  placeholder="First Name" required />
     
