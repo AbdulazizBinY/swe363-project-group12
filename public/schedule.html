@@ -54,10 +54,10 @@
       </select> -->
 
       <h3>Select your courses:</h3>
-      <div>
-        <div class="course-box">Course 1</div>
-        <div class="course-box">Course 2</div>
-        <div class="course-box">Course 3</div>
+        <div id="course-container">
+            <div class="course-box" draggable="true" ondragstart="drag(event)">Course 1</div>
+            <div class="course-box" draggable="true" ondragstart="drag(event)">Course 2</div>
+            <div class="course-box" draggable="true" ondragstart="drag(event)">Course 3</div>
         <!-- Add courses for each level here -->
       </div>
     </div>
@@ -70,21 +70,41 @@
     </div>
 
     <!--Plan-->
-    <div
-      style="display: flex; text-align: center ; justify-content: space-between; width: 38em; height:18em; background-color: black; margin-left: 350px; margin-top: 20px; ">
-
-      <div
-        style="background-color: #3B945E; width:10em;border: 2px solid #ccc;border-radius: 10px;padding: 10px;">
-        Term <span>xxx</span>
-        <hr>
+    
+    <div style="display: flex; text-align: center ; justify-content: space-between; width: 38em; height:18em; background-color: black; margin-left: 350px; margin-top: 20px; "> 
+      
+      <div id="semester1" class="semester-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <!-- Term content goes here -->
         <div
-          style="width:8em;border: 2px solid #ccc;border-radius: 10px;padding: 10px; background-color:#57BA98">+</div>
-        <div style="display: flex; justify-content: space-between;">
-          <div>Hours: <span>x</span></div>
-          <div>GPA: <span>x.xx</span></div>
+          style="background-color: #3B945E; width:10em;border: 2px solid #ccc;border-radius: 10px;padding: 10px;">
+          Term <span>xxx</span>
+          <hr>
+          <div
+            style="width:8em;border: 2px solid #ccc;border-radius: 10px;padding: 10px; background-color:#57BA98">+</div>
+          <div style="display: flex; justify-content: space-between;">
+            <div>Hours: <span>x</span></div>
+            <div>GPA: <span>x.xx</span></div>
+          </div>
+          <div>Honor Status: <span>x</span> </div>
+          <div>CGPA: <span>x.xx</span></div>
         </div>
-        <div>Honor Status: <span>x</span> </div>
-        <div>CGPA: <span>x.xx</span></div>
+      </div>
+  
+      <div id="semester2" class="semester-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <!-- Term content goes here -->
+        <div
+          style="background-color: #3B945E; width:10em;border: 2px solid #ccc;border-radius: 10px;padding: 10px;">
+          Term <span>xxx</span>
+          <hr>
+          <div
+            style="width:8em;border: 2px solid #ccc;border-radius: 10px;padding: 10px;background-color:#57BA98">+</div>
+          <div style="display: flex; justify-content: space-between;">
+            <div>Hours: <span>x</span></div>
+            <div>GPA: <span>x.xx</span></div>
+          </div>
+          <div>Honor Status: <span>x</span> </div>
+          <div>CGPA: <span>x.xx</span></div>
+        </div>
       </div>
 
       <div
@@ -101,22 +121,27 @@
         <div>CGPA: <span>x.xx</span></div>
       </div>
 
-      <div
-        style="background-color: #3B945E; width:10em;border: 2px solid #ccc;border-radius: 10px;padding: 10px;">
-        Term <span>xxx</span>
-        <hr>
-        <div
-          style="width:8em;border: 2px solid #ccc;border-radius: 10px;padding: 10px;background-color:#57BA98">+</div>
-        <div style="display: flex; justify-content: space-between;">
-          <div>Hours: <span>x</span></div>
-          <div>GPA: <span>x.xx</span></div>
-        </div>
-        <div>Honor Status: <span>x</span> </div>
-        <div>CGPA: <span>x.xx</span></div>
-      </div>
 
     </div>
 
+    <script>
+      function drag(event) {
+          event.dataTransfer.setData("text/plain", event.target.innerText);
+      }
+
+      function allowDrop(event) {
+          event.preventDefault();
+      }
+
+      function drop(event) {
+          event.preventDefault();
+          var data = event.dataTransfer.getData("text/plain");
+          var courseBox = document.createElement("div");
+          courseBox.className = "course-box";
+          courseBox.innerText = data;
+          event.target.appendChild(courseBox);
+      }
+  </script>
 
       <footer>
         <p>&copy; 2023 KFUPM CourseCraft</p>
