@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
             lastName: form.lastName.value,
             email: form.email.value,
             kfupmId: form.kfupmId.value,
+            major: form.major.value,
+            classLevel: form.classLevel.value,
             password: password
         };
 
@@ -40,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const result = await response.json();
             if (response.ok) {
                 // Redirect to login page on successful signup
-                window.location.href = '/login.html';
+                window.location.href = '/login';
             } else {
                 showErrorModal(result.message);
             }

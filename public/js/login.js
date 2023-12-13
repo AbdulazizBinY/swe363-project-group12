@@ -21,14 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             const result = await response.json();
+
+            // Hide the loader after receiving the response
+            loader.style.display = 'none';
+
             if (response.ok) {
-                // Redirect to home.html on successful login
-                window.location.href = '/home.html';
+                // Redirect to home page on successful login
+                window.location.href = '/';
             } else {
-                // Hide the loader if there's an error
-                loader.style.display = 'none';
-                // Display error message
-                errorMessageDiv.textContent = result.message;
+                // Display error message if login is unsuccessful
+                errorMessageDiv.textContent = result.message || 'Login failed. Please try again.';
                 errorMessageDiv.style.display = 'block';
             }
         } catch (error) {

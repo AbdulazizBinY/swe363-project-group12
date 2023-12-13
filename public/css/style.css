@@ -1,5 +1,7 @@
 body {
-    background-image: linear-gradient(to right, #65CCB8, #579aa5);
+    background: #56ab2f;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #a8e063, #56ab2f);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #a8e063, #56ab2f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
     font-family: 'Onest', sans-serif;
     margin: 0;
 }
@@ -67,14 +69,14 @@ nav ul li a:focus {
 
 .headerText {
     color: white;
-    margin-top: 50px;
     text-align: center;
+    margin-top: 30px;
 }
 
 .paraText {
-    margin: 30px;
     padding: 20px;
     text-align: justify;
+    margin: 0 15px;
 }
 
 #hero h2,
@@ -186,14 +188,6 @@ button:hover {
     }
 }
 
-.headerText {
-    margin-top: 30px;
-}
-
-.paraText {
-    margin: 0 15px;
-}
-
 .profileDiv {
     text-align: center;
 }
@@ -254,4 +248,8 @@ input {
     height: 20px;
     margin-left: -32px;
     cursor: pointer;
+}
+
+.centered-input {
+    text-align: center;
 }

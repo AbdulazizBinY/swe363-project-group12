@@ -19,7 +19,7 @@
 <body>
     <header>
         <nav>
-            <a href="home.html">
+            <a href="/">
                 <h1>Welcome to
                     KFUPM CourseCraft</h1>
             </a>
@@ -30,7 +30,7 @@
         <div class="loader"></div>
     </div>
 
-    <div class="center-container">
+    <div class="center-container-signup">
         <div class="login-container">
             <h2>Sign Up</h2>
             <form id="signupForm">
@@ -59,15 +59,32 @@
                 </div>
 
                 <div class="input-icon-container">
+                    <p>Please select your major:</p> 
+                    <input type="radio" id="SWE" name="major" value="Software Engineer">
+                    <label for="SWE">Software Engineer</label><br>
+                    <input type="radio" id="CS" name="major" value="Computer Science">
+                    <label for="CS">Computer Science</label><br><br>
+                </div>
+                
+                <div class="input-icon-container">
+                    <p>Please select your class level:</p>
+                    <input type="radio" id="Freshmen" name="classLevel" value="Freshmen">
+                    <label for="Freshmen">Freshmen (FR)</label><br>
+                    <input type="radio" id="Sophomore" name="classLevel" value="Sophomore">
+                    <label for="Sophomore">Sophomore (SO)</label><br>  
+                    <input type="radio" id="Junior" name="classLevel" value="Junior">
+                    <label for="Junior">Junior (JR)</label><br>
+                    <input type="radio" id="Senior" name="classLevel" value="Senior">
+                    <label for="Senior">Senior (SR)</label><br><br>
+                </div>                
+
+                <div class="input-icon-container">
                     <i class="fa fa-lock icon input-icon"></i>
                     <input type="password" name="password" id="password" class="form-control input-field"
                         placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                         title="Must contain at least one number, one uppercase letter, one lowercase letter, and at least 8 or more characters">
                     <i class="fa fa-eye-slash toggle-password" onclick="togglePasswordVisibility('password')"></i>
                 </div>
-
-                <small id="passwordHint">Password must be at least 8 characters long, include an uppercase letter, a
-                    lowercase letter, and a number.</small>
 
                 <div class="input-icon-container">
                     <i class="fa fa-lock icon input-icon"></i>
@@ -81,7 +98,7 @@
                 <div class="checkbox-container">
                     <label>
                         <input type="checkbox" required>
-                        I agree to the <a href="terms.html">Terms and
+                        I agree to the <a href="/public/terms.html">Terms and
                             Conditions</a>
                     </label>
                 </div>
@@ -90,7 +107,7 @@
             </form>
             <div class="account-action">
                 <span>Already have an account?</span>
-                <a href="login.html">Login</a>
+                <a href="/login">Login</a>
             </div>
         </div>
     </div>
@@ -102,7 +119,7 @@
         </div>
     </div>
 
-    <script src="js/script.js" defer></script>
+    <script src="js/auth.js" defer></script>
     <script src="js/login.js" defer></script>
 
 </body>
