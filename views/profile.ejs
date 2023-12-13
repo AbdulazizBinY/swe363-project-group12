@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+       <!-- Meta tags and Other links -->
+       <meta charset="utf-8" />
+       <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
+       <link rel="preconnect" href="https://fonts.googleapis.com" />
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+       <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500&family=Onest:wght@300&display=swap"
+              rel="stylesheet" />
+       <!-- CSS links -->
+       <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+       <header>
+              <h1><a href="/">KFUPM CourseCraft</a></h1>
+              <nav>
+                     <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/schedule">Schedule</a></li>
+                            <li><a href="/resourcesMainPage">Resources</a></li>
+                            <li><a class="active" href="#profile">Profile</a></li>
+                            <% if (user) { %>
+                                   <li><a href="/logout">Log Out</a></li>
+                                   <% } else { %>
+                                          <li><a href="/login">Login</a></li>
+                                          <li><a href="/signup">Signup</a></li>
+                                          <% } %>
+                     </ul>
+              </nav>
+       </header>
+
+       <div class="profileDiv">
+              <h2 class="profile">User Profile</h2>
+              <div class="profilePicture">
+                     <img src="./assets/Male user profile icon vector image png.jpeg" alt="profile Picture" />
+              </div>
+              <div class="name">
+                     <div class="labelDiv"><label>Name</label></div>
+                     <input disabled type="text" value="<%= user.name || '' %>" class="centered-input"/>
+              </div>
+              <div class="major">
+                     <div class="labelDiv"><label>Major</label></div>
+                     <input disabled type="text" value="<%= user.major || '' %>" class="centered-input"/>
+              </div>
+              <div class="level">
+                     <div class="labelDiv"><label>Class Level</label></div>
+                     <input disabled type="text" value="<%= user.classLevel || '' %>" class="centered-input"/>
+              </div>
+              <div class="email">
+                     <div class="labelDiv"><label>Email</label></div>
+                     <input disabled type="email" value="<%= user.email || '' %>" class="centered-input"/>
+              </div>
+       </div>
+
+       <footer>
+              <p>&copy; 2023 KFUPM CourseCraft</p>
+       </footer>
+
+       <script src="js/script.js" defer></script>
+</body>
+
+</html>

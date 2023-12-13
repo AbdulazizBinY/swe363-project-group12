@@ -1,5 +1,7 @@
 body {
-    background-image: linear-gradient(to right, #65CCB8, #579aa5);
+    background: #56ab2f;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #a8e063, #56ab2f);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #a8e063, #56ab2f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
     font-family: 'Onest', sans-serif;
     margin: 0;
 }
@@ -35,22 +37,28 @@ nav a:hover {
     margin-bottom: 10px;
 }
 
-#passwordHint {
-    color: #6c757d;
-    font-size: 0.875em;
-    font-style: italic;
-}
-
 .input-icon-container.confirm-password-input {
     margin-top: 100px;
 }
 
-
-.center-container {
+.center-container-login {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 75vh;
+}
+
+.center-container-signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 110vh;
+}
+
+.login-flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .login-container {
@@ -63,6 +71,16 @@ nav a:hover {
 .login-container h2 {
     color: #333;
     text-align: center;
+}
+
+.login-image-container {
+    margin-left: 10px; /* Add some space between form and image */
+}
+
+.login-image-container img {
+    border-radius: 10px;
+    width: 400px;
+    height: 390px;
 }
 
 .form-control {
