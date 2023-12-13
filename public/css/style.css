@@ -1,7 +1,5 @@
 body {
-    background: #56ab2f;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #a8e063, #56ab2f);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #a8e063, #56ab2f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    background-image: linear-gradient(to right, #e4afcb 0%, #b8cbb8 0%, #b8cbb8 0%, #e2c58b 30%, #c2ce9c 64%, #7edbdc 100%);
     font-family: 'Onest', sans-serif;
     margin: 0;
 }
@@ -60,6 +58,13 @@ nav ul li a:focus {
     padding: 7px 12px;
 }
 
+.content {
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    margin: 20px; /* Spacing around content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
 .active {
     color: #86C323;
     background-color: #254E50;
@@ -68,15 +73,16 @@ nav ul li a:focus {
 }
 
 .headerText {
-    color: white;
-    text-align: center;
+    color: #333;
     margin-top: 30px;
+    text-align: center;
+    font-size: 1.8em; 
 }
 
 .paraText {
-    padding: 20px;
-    text-align: justify;
+    color: #555;
     margin: 0 15px;
+    text-align: justify;
 }
 
 #hero h2,
@@ -84,9 +90,21 @@ nav ul li a:focus {
     overflow: hidden;
     border-right: .15em solid linear-gradient(to right, #65CCB8, #579aa5);
     white-space: nowrap;
-    margin: 0 auto;
     letter-spacing: .15em;
     animation: typing 3.5s steps(30, end) forwards, blink-caret .75s step-end forwards;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px 0px 20px 0px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#hero {
+    color: white;
+    text-align: center;
+    padding: 50px 0;
+    font-size: 2em;
 }
 
 @keyframes typing {
@@ -145,12 +163,6 @@ button:hover {
     color: #ECCECE;
 }
 
-#hero {
-    color: white;
-    text-align: center;
-    padding: 50px 0;
-    font-size: 2em;
-}
 
 footer {
     background-color: #182628;

@@ -1,7 +1,5 @@
 body {
-    background: #56ab2f;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #a8e063, #56ab2f);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #a8e063, #56ab2f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    background-image: linear-gradient(to right, #e4afcb 0%, #b8cbb8 0%, #b8cbb8 0%, #e2c58b 30%, #c2ce9c 64%, #7edbdc 100%); 
     font-family: 'Onest', sans-serif;
     margin: 0;
 }
@@ -52,7 +50,7 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 110vh;
+    height: 135vh;
 }
 
 .login-flex-container {
@@ -74,13 +72,19 @@ nav a:hover {
 }
 
 .login-image-container {
-    margin-left: 10px; /* Add some space between form and image */
+    margin-left: 10px;
+    /* Add some space between form and image */
 }
 
 .login-image-container img {
     border-radius: 10px;
     width: 400px;
     height: 390px;
+}
+
+.signup-image-container img {
+    width: 300px;
+    height: auto;
 }
 
 .form-control {
@@ -136,8 +140,24 @@ nav a:hover {
     margin-top: 20px;
 }
 
+.login-btn {
+    background-image: linear-gradient(to right, #43C6AC 0%, #F8FFAE 51%, #43C6AC 100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
 .login-btn:hover {
-    background-color: #62c449;
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
 }
 
 .checkbox-container {
@@ -213,6 +233,65 @@ nav a:hover {
     width: 50px;
     height: 50px;
     animation: spin 2s linear infinite;
+}
+
+/* New styles for radio button layout */
+.fieldset {
+    border: none;
+    margin: 10px 0;
+}
+
+.radio-option {
+    margin-bottom: 10px;
+}
+
+.radio-option input[type='radio'] {
+    margin-right: 5px;
+}
+
+legend {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.input-icon-container p {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.input-icon-container input[type="radio"] {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.center-container-signup {
+    height: auto;
+    padding-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .login-flex-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .login-image-container img,
+    .signup-image-container img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .input-icon-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .login-container,
+    .center-container-signup {
+        width: 90%;
+    }
 }
 
 @keyframes spin {

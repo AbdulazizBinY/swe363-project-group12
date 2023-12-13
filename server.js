@@ -106,6 +106,11 @@ app.get("/schedule", (req, res) => {
     res.render("schedule", { user: req.session.user });
 });
 
+// terms route
+app.get("/terms", (req, res) => {
+    res.render("terms", { user: req.session.user });
+});
+
 // Log-out route
 app.get('/logout', (req, res) => {
     req.session.destroy((err) => {
