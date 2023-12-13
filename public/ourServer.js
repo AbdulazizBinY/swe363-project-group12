@@ -565,50 +565,117 @@ let pushedCourse=[]
 
 
   
-const { MongoClient, ServerApiVersion } = require('mongodb');
+//const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://Luay:1234@kfupmcc.i1mhych.mongodb.net/?retryWrites=true&w=majority";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
+// const client = new MongoClient(uri, {
+//   serverApi: {
+//     version: ServerApiVersion.v1,
+//     strict: true,
+//     deprecationErrors: true,
+//   }
+// });
 
-async function run() {
-  try {
-    // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+// async function run() {
+//   try {
+//     // Connect the client to the server	(optional starting in v4.7)
+//     await client.connect();
+//     // Send a ping to confirm a successful connection
+//     await client.db("admin").command({ ping: 1 });
+//     console.log("Pinged your deployment. You successfully connected to MongoDB!");
 
-    completeCourses.forEach(course =>{
-    pushedCourse.push(
-        { shortcut: course[0],
-          title: course[1],
-          credit: course[2],
-          labHours: course[3],
-          preReqs: course[4],
-          coReqs: course[5],  
-
-        })
-      })
+//     const update = {
+//       $set: {
+//         resources: [] // You can set any default value here
+//       }
+//     };
 
 
-        const database = client.db("KFUPMCC");
-        const coursesCollection = database.collection('Courses');
-        const result = await coursesCollection.insertMany(pushedCourse);
-        console.log(`Inserted ${result.insertedCount} documents`);
+
+//     // completeCourses.forEach(course =>{
+//     // pushedCourse.push(
+//     //     { shortcut: course[0],
+//     //       title: course[1],
+//     //       credit: course[2],
+//     //       labHours: course[3],
+//     //       preReqs: course[4],
+//     //       coReqs: course[5],  
+
+//     //     })
+//     //   })
 
 
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-}
-run().catch(console.dir);
+//         const database = client.db("KFUPMCC");
+//         const coursesCollection = database.collection('Courses');
+//         // const result = await coursesCollection.insertMany(pushedCourse);
+//         // console.log(`Inserted ${result.insertedCount} documents`);
+
+
+
+//         coursesCollection.updateMany({}, update, (err, result) => {
+//           if (err) throw err;
+      
+//           console.log(`${result.modifiedCount} documents updated`);
+      
+//           // Close the MongoDB connection
+//           // client.close();
+//         });
+
+
+//   } finally {
+//     // Ensures that the client will close when you finish/error
+//     await client.close();
+//   }
+// }
+// run().catch(console.dir);
 
   
+
+
+
+const MongoClient = require('mongodb').MongoClient;
+
+const url = 'mongodb+srv://Luay:1234@kfupmcc.i1mhych.mongodb.net/?retryWrites=true&w=majority';
+const dbName = "KFUPMCC";
+async function run() {
+MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, async (err, client) => {
+  if (err) throw err;
+
+  const db = client.db(dbName);
+
+  // Start a session
+  const session = client.startSession();
+
+  try {
+    await session.withTransaction(async () => {
+      // Your MongoDB operations go here
+
+      // Example: Update documents in a collection
+      const collection = db.collection('Courses');
+      const update = {
+        $set: {
+          resources: [] // You can set any default value here
+        }
+      };
+      //await collection.updateMany({}, { $set: { newField: 'default_value' } });
+
+      await collection.updateMany({}, update, (err, result) => {
+        if (err) throw err;
+    
+        console.log(`${result.modifiedCount} documents updated`);
+    
+        // Close the MongoDB connection
+        // client.close();
+      });
+
+    });
+  } finally {
+    // Close the session
+    session.endSession();
+    // Close the MongoDB connection
+    client.close();
+  }
+});
+}
+ run().catch(console.dir);
