@@ -60,7 +60,7 @@ exports.login = async (req, res) => {
         // Check if the user exists
         const user = await users.findOne({ kfupmId });
         if (!user) {
-            res.status(401).json({ message: 'Invalid KFUPM ID and/or password' });
+            res.status(401).json({ message: 'This user does not exists' });
             return;
         }
 
@@ -77,8 +77,8 @@ exports.login = async (req, res) => {
             kfupmId: user.kfupmId,
             name: user.firstName, 
             major: user.major,  
-            classLevel: user.classLevel, 
-            email: user.email
+            classLevel: user.classLevel,
+            email: user.email,
             terms: user.terms
         };
 

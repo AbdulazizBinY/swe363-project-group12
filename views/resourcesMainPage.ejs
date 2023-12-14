@@ -4,13 +4,26 @@
     <!-- Meta tags -->
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
+
+    <!-- Title  -->
+    <title>KFUPM CourseCraft</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
     <!-- Other links -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500&family=Onest:wght@300&display=swap"
         rel="stylesheet" />
+
     <!-- CSS links -->
     <link href="css/style.css" rel="stylesheet" />
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
         h2 {
@@ -30,99 +43,112 @@
 </head>
 
 <body>
-    <header>
+    <div class="loader"></div>
+    <div id="mainContent" style="display: none;">
+        <header class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">KFUPM CourseCraft</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/schedule"><i class="fas fa-calendar-alt"></i>
+                            Schedule</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/resourcesMainPage"><i class="fas fa-book"></i>
+                            Resources</a></li>
+                    <% if (allCourses[2]) { %>
+                        <li class="nav-item"><a class="nav-link" href="/profile"><i class="fas fa-user"></i> Profile</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> Log
+                                Out</a></li>
+                        <% } else { %>
+                            <li class="nav-item"><a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>
+                                    Login</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/signup"><i class="fas fa-user-plus"></i>
+                                    Sign up</a></li>
+                            <% } %>
+                </ul>
+            </div>
+        </header>
 
-        <h1><a href="/">KFUPM CourseCraft</a></h1>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/schedule">Schedule</a></li>
-                <li><a class="active" href="#resources">Resources</a></li>
+        <section class="course-grid">
+
+            <h1>According to Your <select id="term-select">
+                    <option value="term1">231</option>
+                    <option value="term2">232</option>
+                    <option value="term3">233</option>
+                    <option value="term4">241</option>
+                </select> term:</h1>
+
+            <div class="course-box">
+                <a href="course1.html" class="course-link">
+                    <h2>MATH-101</h2>
+                </a>
                 <% if (allCourses[2]) { %>
-                    <!-- Content to display if the user is logged in -->
-                    <li><a href="/profile">Profile</a></li>
-                    <li><a href="/logout">Log Out</a></li>
+                    <h1>
+                        <%= allCourses[2].major %>
+                    </h1>
                     <% } else { %>
-                        <!-- Content to display if the user is not logged in -->
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/signup">Sign up</a></li>
+                        <!-- Add additional resources/content here -->
                         <% } %>
-            </ul>
 
-        </nav>
-        
+            </div>
 
-    </header>
+            <div class="course-box">
+                <a href="course2.html" class="course-link">
+                    <h2>PHYS-101</h2>
+                </a>
+                <!-- Add additional resources/content here -->
+            </div>
 
-    <section class="course-grid">
+            <div class="course-box">
+                <a href="course3.html" class="course-link">
+                    <h2>ICS-104</h2>
+                </a>
+                <!-- Add additional resources/content here -->
+            </div>
 
-        <h1>According to Your <select id="term-select">
-                <option value="term1">231</option>
-                <option value="term2">232</option>
-                <option value="term3">233</option>
-                <option value="term4">241</option>
-            </select> term:</h1>
+            <div class="course-box">
+                <a href="course4.html" class="course-link">
+                    <h2>IAS-111</h2>
+                </a>
+                <!-- Add additional resources/content here -->
+            </div>
 
-            
-            
-
-
-        <div class="course-box">
-            <a href="course1.html" class="course-link">
-                <h2>MATH-101</h2>
-            </a>
-
-            <h1><%= allCourses[2].major %> </h1>
-            <!-- Add additional resources/content here -->
-
-        </div>
-
-        <div class="course-box">
-            <a href="course2.html" class="course-link">
-                <h2>PHYS-101</h2>
-            </a>
-            <!-- Add additional resources/content here -->
-        </div>
-
-        <div class="course-box">
-            <a href="course3.html" class="course-link">
-                <h2>ICS-104</h2>
-            </a>
-            <!-- Add additional resources/content here -->
-        </div>
-
-        <div class="course-box">
-            <a href="course4.html" class="course-link">
-                <h2>IAS-111</h2>
-            </a>
-            <!-- Add additional resources/content here -->
-        </div>
-
-        <!-- Add more course boxes as needed -->
+            <!-- Add more course boxes as needed -->
 
 
-        <h1>Major Courses: </h1>
-        <% allCourses[0].forEach(item => { %>
-           <li> <a href="<%= item.resources[0] %>"><%= item.shortcut %></a></li>
-           <br>
-           
-          <% }); %>
+            <h1>Major Courses: </h1>
+            <% allCourses[0].forEach(item=> { %>
+                <li> <a href="<%= item.resources[0] %>">
+                        <%= item.shortcut %>
+                    </a></li>
+                <br>
+
+                <% }); %>
 
 
-        <h1>General Courses: </h1>
-        <% allCourses[1].forEach(item => { %>
-           <li> <a href="<%= item.resources[0] %>"><%= item.shortcut %></a></li>
-            <br>
-            <!-- <li><%= item.shortcut %></li> -->
-           
-          <% }); %>
-    </section>
+                    <h1>General Courses: </h1>
+                    <% allCourses[1].forEach(item=> { %>
+                        <li> <a href="<%= item.resources[0] %>">
+                                <%= item.shortcut %>
+                            </a></li>
+                        <br>
+                        <!-- <li><%= item.shortcut %></li> -->
+
+                        <% }); %>
+        </section>
 
 
 
-    <footer>
-        <p>&copy; 2023 KFUPM CourseCraft</p>
-    </footer>
+        <footer class="text-center py-3">
+            <p>&copy; 2023 KFUPM CourseCraft</p>
+        </footer>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js" defer></script>
 
 </body>

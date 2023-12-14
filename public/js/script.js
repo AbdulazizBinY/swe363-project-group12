@@ -1,3 +1,11 @@
+document.addEventListener("DOMContentLoaded", function () {
+    // Set a timeout to delay hiding the loader
+    setTimeout(function () {
+        document.getElementById('mainContent').style.display = 'block';
+        document.querySelector('.loader').style.display = 'none';
+    }, 2500);
+});
+
 function logout() {
     fetch('/api/logout', { method: 'POST' })
     .then(response => {

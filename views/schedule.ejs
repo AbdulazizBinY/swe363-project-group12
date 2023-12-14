@@ -5,85 +5,105 @@
   <!-- Meta tags -->
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
+
+  <!-- Title  -->
+  <title>KFUPM CourseCraft</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <!-- Other links -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500&family=Onest:wght@300&display=swap"
     rel="stylesheet" />
+
   <!-- CSS links -->
   <link href="css/style.css" rel="stylesheet" />
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body>
-  <!--Navigation Header-->
-  <header>
+  <div class="loader"></div>
+  <div id="mainContent" style="display: none;">
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">KFUPM CourseCraft</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/schedule"><i class="fas fa-calendar-alt"></i>
+              Schedule</a></li>
+          <li class="nav-item"><a class="nav-link" href="/resourcesMainPage"><i class="fas fa-book"></i>
+              Resources</a></li>
+          <% if (allCourses.user) { %>
+            <li class="nav-item"><a class="nav-link" href="/profile"><i class="fas fa-user"></i> Profile</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> Log
+                Out</a></li>
+            <% } else { %>
+              <li class="nav-item"><a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>
+                  Login</a></li>
+              <li class="nav-item"><a class="nav-link" href="/signup"><i class="fas fa-user-plus"></i>
+                  Sign up</a></li>
+              <% } %>
+        </ul>
+      </div>
+    </header>
 
-    <h1><a href="/">KFUPM CourseCraft</a></h1>
+    <div class="left-box">
+      <h4>Select Level</h4>
+      <select id="level-select">
+        <option value="level1">Freshman</option>
+        <option value="level2">Sophomore</option>
+        <option value="level3">Junior</option>
+        <option value="level4">Senior</option>
+      </select>
 
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a class="active" href="#Schedule">Schedule</a></li>
-        <li><a href="/resourcesMainPage">Resources</a></li>
-        <% if (allCourses.user) { %>
-          <!-- Content to display if the user is logged in -->
-          <li><a href="/profile">Profile</a></li>
-          <li><a href="/logout">Log Out</a></li>
-          <% } else { %>
-            <!-- Content to display if the user is not logged in -->
-            <li><a href="/login">Login</a></li>
-            <li><a href="/signup">Sign up</a></li>
-            <% } %>
-      </ul>
-    </nav>
 
-  </header>
 
-  <div class="left-box">
-    <h4>Select Level</h4>
-    <select id="level-select">
-      <option value="level1">Freshman</option>
-      <option value="level2">Sophmore</option>
-      <option value="level3">Junior</option>
-      <option value="level4">Senior</option>
-    </select>
+      <h3>Select your courses:</h3>
+      <div id="course-container">
+        <% allCourses.courses.forEach(item=> { %>
+          <div class="course-box" draggable="true" data-course="<%= item.shortcut %>">
+            <%= item.shortcut %>
+          </div>
+          <% }); %>
+      </div>
 
-    
-    
-    <h3>Select your courses:</h3>
-    <div id="course-container">
-        <% allCourses.courses.forEach(item => { %>
-            <div class="course-box" draggable="true" data-course="<%= item.shortcut %>"><%= item.shortcut %></div>
-        <% }); %>
     </div>
-    
+
+    <!--Plan Title-->
+    <div>
+      <h1 style="text-align: center;">Plan Your Semesters</h1>
+      <h2 style="text-align: center;">SWE Major</h2>
+      <h3 style="text-align: center;">Plan <span>x</span></h3>
     </div>
-  </div>
 
-  <!--Plan Tilte-->
-  <div>
-    <h1 style="text-align: center;">Plan Your Semesters</h1>
-    <h2 style="text-align: center;">SWE Major</h2>
-    <h3 style="text-align: center;">Plan <span>x</span></h3>
-  </div>
+    <!--Plan-->
 
-  <!--Plan-->
-  
-  <div id="term-container" class="term-scroll-container">
-    <div class="term-container" id="term1">
+    <div id="term-container" class="term-scroll-container">
+      <div class="term-container" id="term1">
         <!-- Term content goes here -->
         Term 231
         <hr>
+      </div>
+      <div class="add-button" onclick="addTerm()">+</div>
     </div>
-    <div class="add-button" onclick="addTerm()">+</div>
+
+    <footer class="text-center py-3">
+      <p>&copy; 2023 KFUPM CourseCraft</p>
+    </footer>
   </div>
-  
-  
-
-  <footer>
-    <p>&copy; 2023 KFUPM CourseCraft</p>
-  </footer>
-
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
   <script src="js/script.js" defer></script>
 </body>
 

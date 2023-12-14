@@ -76,24 +76,20 @@ app.get('/resourcesMainPage', async (req, res) => {
         //const courses = await coursesCollection.find().toArray();
 
         //const majorCourses =  await courses.find({shortcut:"ICS"})
-         const majorCourses =  await coursesCollection.find({
+        const majorCourses = await coursesCollection.find({
             shortcut: { $regex: /^(ICS|SWE)/ }
-          }).toArray();
+        }).toArray();
         //   { $regex: /^(?!ICS|SWE)/i}
-        const nonMajorCourses = await coursesCollection.find({ shortcut: { $regex: /^(?!ICS|SWE)/i} }).toArray();
-        console.log(req.session.user)
-          let allCourses= [majorCourses,nonMajorCourses,req.session.user]
+        const nonMajorCourses = await coursesCollection.find({ shortcut: { $regex: /^(?!ICS|SWE)/i } }).toArray();
+        let allCourses = [majorCourses, nonMajorCourses, req.session.user]
 
         // Render the profile page with the user's data
-        res.render('resourcesMainPage', {  allCourses });
+        res.render('resourcesMainPage', { allCourses });
     } catch (error) {
         console.error('Error retrieving user profile:', error);
         res.status(500).send('Internal Server Error');
     }
 });
-
-
-
 
 // schedule route
 app.get("/schedule", async (req, res) => {
@@ -113,15 +109,10 @@ app.get("/schedule", async (req, res) => {
 
         // If there's an error, pass an empty array for courses
         const allCourses = { courses: [], user: req.session.user };
-        
+
         res.render("schedule", { allCourses });
     }
 });
-
-
-
-
-
 
 // terms route
 app.get("/terms", (req, res) => {
@@ -161,7 +152,6 @@ app.get('/profile', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
-
 
 // MongoDB connection setup
 const client = new MongoClient(mongoUri, {
