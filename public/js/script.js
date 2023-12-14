@@ -115,6 +115,21 @@ function addTerm() {
 
 
 
+function sendDataToDB(data){
+    fetch('/sendData', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+      
+}
+
+
 
 
 
