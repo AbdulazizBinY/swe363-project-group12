@@ -81,7 +81,8 @@ app.get('/resourcesMainPage', async (req, res) => {
         }).toArray();
         //   { $regex: /^(?!ICS|SWE)/i}
         const nonMajorCourses = await coursesCollection.find({ shortcut: { $regex: /^(?!ICS|SWE)/i } }).toArray();
-        let allCourses = [majorCourses, nonMajorCourses, req.session.user]
+        const totalCourses = await coursesCollection.find().toArray();
+        let allCourses = [majorCourses, nonMajorCourses, req.session.user, totalCourses]
 
         // Render the profile page with the user's data
         res.render('resourcesMainPage', { allCourses });
@@ -113,6 +114,11 @@ app.get("/schedule", async (req, res) => {
         res.render("schedule", { allCourses });
     }
 });
+
+
+
+
+
 
 // terms route
 app.get("/terms", (req, res) => {

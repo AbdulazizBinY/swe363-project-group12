@@ -23,22 +23,61 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function drag(event) {
-    event.dataTransfer.setData("text/plain", event.target.innerText);
+document.addEventListener("DOMContentLoaded", function () {
+    var courseBoxes = document.querySelectorAll('.course-box');
+
+    courseBoxes.forEach(function (courseBox) {
+        courseBox.addEventListener('dragstart', function (event) {
+            drag(event, courseBox.innerText);
+        });
+    });
+});
+
+function drag(event, data) {
+    console.log("Dragging:", event.target.innerText);
+    event.dataTransfer.setData("text/plain", data);
 }
+
 
 function allowDrop(event) {
     event.preventDefault();
 }
 
+
+
+
 function drop(event) {
     event.preventDefault();
+    console.log("Drop function called");
+
     var data = event.dataTransfer.getData("text/plain");
-    var courseBox = document.createElement("div");
-    courseBox.className = "course-box";
-    courseBox.innerText = data;
-    event.target.appendChild(courseBox);
+    console.log("Data:", data);
+
+    // Find the closest ancestor with class 'term-container'
+    var termContainer = event.target.closest('.term-container');
+
+    if (termContainer) {
+        console.log("Found term container:", termContainer);
+
+        // Create a new div element with the course name
+        var courseBox = document.createElement("div");
+        courseBox.className = "course-box";
+        courseBox.innerText = data;
+
+        // Append the new div element to the term container
+        termContainer.appendChild(courseBox);
+        console.log("Course box appended to term container");
+    } else {
+        console.log("No term container found.");
+    }
 }
+
+
+
+
+
+
+
 
 
 
@@ -55,10 +94,21 @@ function addTerm() {
         var termContainer = document.createElement("div");
         termContainer.className = "term-container";
         termContainer.innerText = termName;
+        termContainer.id = "term1"
+
+        // Add drag-and-drop event listeners
+        termContainer.setAttribute("draggable", "true");
+        termContainer.addEventListener("dragstart", function (event) {
+            drag(event, termContainer.innerText);
+        });
 
         // Add an <hr> element after the text
         var hrElement = document.createElement("hr");
         termContainer.appendChild(hrElement);
+
+        // Add drop event listeners
+        termContainer.addEventListener("drop", drop);
+        termContainer.addEventListener("dragover", allowDrop);
 
         // Get the term container
         var termContainerElement = document.getElementById("term-container");
@@ -71,6 +121,21 @@ function addTerm() {
     }
 }
 
+
+
+function sendDataToDB(data){
+    fetch('/sendData', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+      
+}
 
 
 
