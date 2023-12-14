@@ -45,22 +45,25 @@ function drop(event) {
     var data = event.dataTransfer.getData("text/plain");
     console.log("Data:", data);
 
-    setTimeout(function () {
-        // Adjust the ID to include the parent div
-        var termContainer = document.getElementById('term-container').querySelector('#term1');
+    // Find the closest ancestor with class 'term-container'
+    var termContainer = event.target.closest('.term-container');
 
-        if (termContainer) {
-            var courseBox = document.createElement("div");
-            courseBox.className = "course-box";
-            courseBox.innerText = data;
+    if (termContainer) {
+        console.log("Found term container:", termContainer);
 
-            termContainer.appendChild(courseBox);
-            console.log("Course box appended");
-        }
-    }, 0);
+        // Create a new div element with the course name
+        var courseBox = document.createElement("div");
+        courseBox.className = "course-box";
+        courseBox.innerText = data;
 
-   
+        // Append the new div element to the term container
+        termContainer.appendChild(courseBox);
+        console.log("Course box appended to term container");
+    } else {
+        console.log("No term container found.");
+    }
 }
+
 
 
 
@@ -83,10 +86,21 @@ function addTerm() {
         var termContainer = document.createElement("div");
         termContainer.className = "term-container";
         termContainer.innerText = termName;
+        termContainer.id = "term1"
+
+        // Add drag-and-drop event listeners
+        termContainer.setAttribute("draggable", "true");
+        termContainer.addEventListener("dragstart", function (event) {
+            drag(event, termContainer.innerText);
+        });
 
         // Add an <hr> element after the text
         var hrElement = document.createElement("hr");
         termContainer.appendChild(hrElement);
+
+        // Add drop event listeners
+        termContainer.addEventListener("drop", drop);
+        termContainer.addEventListener("dragover", allowDrop);
 
         // Get the term container
         var termContainerElement = document.getElementById("term-container");
