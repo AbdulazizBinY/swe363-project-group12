@@ -93,18 +93,33 @@ app.get('/resourcesMainPage', async (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
 // schedule route
-app.get("/schedule", (req, res) => {
-    res.render("schedule", { user: req.session.user });
+app.get("/schedule", async (req, res) => {
+    try {
+        const db = client.db("KFUPMCC");
+        const coursesCollection = db.collection("Courses");
+
+        // Fetch courses from the database
+        const courses = await coursesCollection.find().toArray();
+
+        // Create allCourses array with courses and user
+        const allCourses = { courses, user: req.session.user };
+
+        res.render("schedule", { allCourses });
+    } catch (error) {
+        console.error('Error retrieving courses:', error);
+
+        // If there's an error, pass an empty array for courses
+        const allCourses = { courses: [], user: req.session.user };
+        
+        res.render("schedule", { allCourses });
+    }
 });
+
+
+
+
+
 
 // terms route
 app.get("/terms", (req, res) => {

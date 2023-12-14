@@ -14,3 +14,57 @@ document.addEventListener('DOMContentLoaded', () => {
         logoutButton.addEventListener('click', logout);
     }
 });
+
+function drag(event) {
+    event.dataTransfer.setData("text/plain", event.target.innerText);
+}
+
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+function drop(event) {
+    event.preventDefault();
+    var data = event.dataTransfer.getData("text/plain");
+    var courseBox = document.createElement("div");
+    courseBox.className = "course-box";
+    courseBox.innerText = data;
+    event.target.appendChild(courseBox);
+}
+
+
+
+
+function addTerm() {
+    // Prompt the user for the term name
+    var termName = prompt("Enter the term name (Term 2xx):");
+
+    if (termName !== null && termName.trim() !== "") {
+        // Trim the input to a maximum of 8 characters
+        termName = termName.substring(0, 8);
+
+        // Logic to add a new term
+        var termContainer = document.createElement("div");
+        termContainer.className = "term-container";
+        termContainer.innerText = termName;
+
+        // Add an <hr> element after the text
+        var hrElement = document.createElement("hr");
+        termContainer.appendChild(hrElement);
+
+        // Get the term container
+        var termContainerElement = document.getElementById("term-container");
+
+        // Add the new term to the container
+        termContainerElement.insertBefore(termContainer, document.querySelector('.add-button'));
+
+        // Scroll to the right to reveal the new term
+        termContainerElement.scrollLeft += termContainer.offsetWidth;
+    }
+}
+
+
+
+
+
+
