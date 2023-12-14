@@ -15,58 +15,61 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function drag(event) {
-    event.dataTransfer.setData("text", event.target.id);
+document.addEventListener("DOMContentLoaded", function () {
+    var courseBoxes = document.querySelectorAll('.course-box');
+
+    courseBoxes.forEach(function (courseBox) {
+        courseBox.addEventListener('dragstart', function (event) {
+            drag(event, courseBox.innerText);
+        });
+    });
+});
+
+function drag(event, data) {
+    console.log("Dragging:", event.target.innerText);
+    event.dataTransfer.setData("text/plain", data);
 }
+
 
 function allowDrop(event) {
     event.preventDefault();
 }
 
+
+
+
 function drop(event) {
     event.preventDefault();
-    var data = event.dataTransfer.getData("text");
-    var draggedElement = document.getElementById(data);
-    
-    var courseBox = document.createElement("div");
-    courseBox.className = "course-box";
-    courseBox.innerText = data;
-    //event.target.appendChild(courseBox);
+    console.log("Drop function called");
 
-    if (event.target.classList.contains("term-container")) {
-        event.target.appendChild(courseBox).appendChild(event.target.appendChild(document.getElementById(data)););
-        courseBox.appendChild(data)
-    }
+    var data = event.dataTransfer.getData("text/plain");
+    console.log("Data:", data);
 
+    setTimeout(function () {
+        // Adjust the ID to include the parent div
+        var termContainer = document.getElementById('term-container').querySelector('#term1');
 
+        if (termContainer) {
+            var courseBox = document.createElement("div");
+            courseBox.className = "course-box";
+            courseBox.innerText = data;
+
+            termContainer.appendChild(courseBox);
+            console.log("Course box appended");
+        }
+    }, 0);
+
+   
 }
 
-class Term {
-    
-    constructor(termNumber, courses) {
-      this.termNumber = termNumber;
-      this.courses = courses || [];
-    }
-  
-    
-    addCourse(course) {
-        this.courses.push(course);
-    }
-
-    reomveCourse(course){
-        let indexToRemove = this.courses.indexOf(course);
-
-        if (indexToRemove !== -1) {
-            
-            this.courses.splice(indexToRemove, 1);  // Use splice to remove the element
-        }
-    }
 
 
-  }
-  let terms = []
-  let term1 = new Term(231)
-  terms.push(term1)
+
+
+
+
+
+
 
 function addTerm() {
     // Prompt the user for the term name
