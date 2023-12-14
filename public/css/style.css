@@ -265,3 +265,75 @@ input {
 .centered-input {
     text-align: center;
 }
+
+
+#course-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-rows: 1fr; /* Ensure a single row */
+    gap: 10px;
+}
+
+.course-box {
+    cursor: grab;
+    user-select: none;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 50px;
+}
+
+
+
+
+.semester-container {
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.semester-container div {
+    background-color: white;
+    width: 10em;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+  }
+
+.term-scroll-container {
+    width: 1000px;
+    height: 500px;
+    overflow-x: auto;
+    white-space: nowrap;
+    border: 2px dashed black;
+    border-radius: 10px;
+    padding: 20px; /* Adjusted padding */
+    margin: 20px auto; /* Centered the container with auto margin */
+    display: flex;
+    align-items: center; /* Center items vertically */
+}
+
+.term-container {
+    background-color: #3B945E;
+    width: 10em;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    display: inline-block;
+    width: 200px;
+    height: 500px;
+}
+
+.add-button {
+    background-color: #3B945E;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+  }
