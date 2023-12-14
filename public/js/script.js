@@ -73,7 +73,6 @@ function drop(event) {
 
 
 
-
 function addTerm() {
     // Prompt the user for the term name
     var termName = prompt("Enter the term name (Term 2xx):");
@@ -85,8 +84,11 @@ function addTerm() {
         // Logic to add a new term
         var termContainer = document.createElement("div");
         termContainer.className = "term-container";
-        termContainer.innerText = termName;
-        termContainer.id = "term1"
+
+        var termNum = document.createElement('span');
+        termNum.className = "termName"
+        termNum.innerText = termName
+        termContainer.appendChild(termNum);
 
         // Add drag-and-drop event listeners
         termContainer.setAttribute("draggable", "true");
@@ -115,21 +117,48 @@ function addTerm() {
 
 
 
-function sendDataToDB(data){
-    fetch('/sendData', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error('Error:', error));
-      
+
+
+function loopOnTerms(){
+    let externalDiv = document.getElementById("term-container");
+    let divs = externalDiv.querySelectorAll('.term-container');
+    
+    divs.forEach(div => {
+        let term = new Term()
+        let termNum = div.querySelector('.termName');
+        term.termNumber = termNum.innerText
+        let divCourses = div.querySelectorAll('.course-box');
+        divCourses.forEach(course => {
+            term.addCourse(course.innerText)
+        })
+        terms.push(term)
+    })
+    console.log(terms)
 }
 
 
-
-
-
+class Term {
+ 
+    constructor(termNumber, courses) {
+      this.termNumber = termNumber;
+      this.courses = courses || [];
+    }
+ 
+    // addTermNumber
+ 
+    addCourse(course) {
+        this.courses.push(course);
+    }
+ 
+    reomveCourse(course){
+        let indexToRemove = this.courses.indexOf(course);
+ 
+        if (indexToRemove !== -1) {
+ 
+            this.courses.splice(indexToRemove, 1);  // Use splice to remove the element
+        }
+    }
+ 
+  }
+  let terms = []
+  
