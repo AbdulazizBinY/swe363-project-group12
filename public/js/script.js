@@ -133,6 +133,10 @@ function loopOnTerms(){
         })
         terms.push(term)
     })
+
+    sendDataToDB(terms)
+
+
     console.log(terms)
 }
 
@@ -161,4 +165,20 @@ class Term {
  
   }
   let terms = []
+
+
+function sendDataToDB(data){
+    fetch('/sendData', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+      
+}
+
   

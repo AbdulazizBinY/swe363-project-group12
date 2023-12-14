@@ -4,6 +4,7 @@ const MongoStore = require("connect-mongo");
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const signupRoutes = require("./routes/signupRoute");
 const loginRoutes = require("./routes/loginRoute");
+const ObjectId = require('mongodb').ObjectId;
 
 // Initialize Express app
 const app = express();
@@ -121,11 +122,20 @@ app.get("/schedule", async (req, res) => {
 
 
 // Send terms info to the the DB 
-app.post("/sendData", (req,res) => {
+app.post("/sendData", async(req,res) => {
     try{
 
         const db = client.db("KFUPMCC");
         const usersCollection = db.collection("users");
+
+        const user = await usersCollection.findOne({ kfupmId: req.session.user.kfupmId });
+
+        await usersCollection.updateOne(
+            { _id: user._id },
+            { $set: { terms: req.body } }
+          );
+
+        //await collection.insertOne(req.body);
 
 
         client.close();
