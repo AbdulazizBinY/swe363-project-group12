@@ -15,22 +15,58 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function drag(event) {
-    event.dataTransfer.setData("text/plain", event.target.innerText);
+document.addEventListener("DOMContentLoaded", function () {
+    var courseBoxes = document.querySelectorAll('.course-box');
+
+    courseBoxes.forEach(function (courseBox) {
+        courseBox.addEventListener('dragstart', function (event) {
+            drag(event, courseBox.innerText);
+        });
+    });
+});
+
+function drag(event, data) {
+    console.log("Dragging:", event.target.innerText);
+    event.dataTransfer.setData("text/plain", data);
 }
+
 
 function allowDrop(event) {
     event.preventDefault();
 }
 
+
+
+
 function drop(event) {
     event.preventDefault();
+    console.log("Drop function called");
+
     var data = event.dataTransfer.getData("text/plain");
-    var courseBox = document.createElement("div");
-    courseBox.className = "course-box";
-    courseBox.innerText = data;
-    event.target.appendChild(courseBox);
+    console.log("Data:", data);
+
+    setTimeout(function () {
+        // Adjust the ID to include the parent div
+        var termContainer = document.getElementById('term-container').querySelector('#term1');
+
+        if (termContainer) {
+            var courseBox = document.createElement("div");
+            courseBox.className = "course-box";
+            courseBox.innerText = data;
+
+            termContainer.appendChild(courseBox);
+            console.log("Course box appended");
+        }
+    }, 0);
+
+   
 }
+
+
+
+
+
+
 
 
 
