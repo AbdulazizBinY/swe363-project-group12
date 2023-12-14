@@ -17,124 +17,122 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-            <a href="/">
-                <h1>Welcome to
-                    KFUPM CourseCraft</h1>
-            </a>
-        </nav>
-    </header>
+    <div class="loader"></div>
+    <div id="mainContent" style="display: none;">
+        <header>
+            <nav>
+                <a href="/">
+                    <h1>Welcome to
+                        KFUPM CourseCraft</h1>
+                </a>
+            </nav>
+        </header>
 
-    <div id="loader" class="loader-container">
-        <div class="loader"></div>
-    </div>
+        <div class="center-container-signup">
+            <div class="login-container">
+                <div class="signup-image-container">
+                    <img src="assets/Sign-Up.avif" alt="Sign Up Image">
+                </div>
+                <h2>Sign Up</h2>
+                <form id="signupForm">
+                    <div class="input-icon-container">
+                        <i class="fa fa-user icon input-icon"></i>
+                        <input type="text" name="firstName" class="form-control input-field" placeholder="First Name"
+                            required>
+                    </div>
 
-    <div class="center-container-signup">
-        <div class="login-container">
-            <div class="signup-image-container">
-                <img src="assets/Sign-Up.avif" alt="Sign Up Image">
+                    <div class="input-icon-container">
+                        <i class="fa fa-user icon input-icon"></i>
+                        <input type="text" name="lastName" class="form-control input-field" placeholder="Last Name"
+                            required>
+                    </div>
+
+                    <div class="input-icon-container">
+                        <i class="fa fa-envelope icon input-icon"></i>
+                        <input type="email" name="email" class="form-control input-field" placeholder="E-mail" required>
+                    </div>
+
+                    <div class="input-icon-container">
+                        <i class="fa fa-id-card icon input-icon"></i>
+                        <input type="text" name="kfupmId" class="form-control input-field" placeholder="KFUPM ID"
+                            required pattern="20\d{7}" minlength="9" maxlength="9"
+                            title="KFUPM ID must be 9 digits long and start with '20'">
+                    </div>
+
+                    <fieldset class="input-icon-container">
+                        <legend>Please select your major:</legend>
+                        <div class="radio-option">
+                            <input type="radio" id="SWE" name="major" value="Software Engineer">
+                            <label for="SWE">Software Engineer</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="CS" name="major" value="Computer Science">
+                            <label for="CS">Computer Science</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="input-icon-container">
+                        <legend>Please select your class level:</legend>
+                        <div class="radio-option">
+                            <input type="radio" id="Freshmen" name="classLevel" value="Freshmen">
+                            <label for="Freshmen">Freshmen (FR)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="Sophomore" name="classLevel" value="Sophomore">
+                            <label for="Sophomore">Sophomore (SO)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="Junior" name="classLevel" value="Junior">
+                            <label for="Junior">Junior (JR)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="Senior" name="classLevel" value="Senior">
+                            <label for="Senior">Senior (SR)</label>
+                        </div>
+                    </fieldset>
+
+
+                    <div class="input-icon-container">
+                        <i class="fa fa-lock icon input-icon"></i>
+                        <input type="password" name="password" id="password" class="form-control input-field"
+                            placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                            title="Must contain at least one number, one uppercase letter, one lowercase letter, and at least 8 or more characters">
+                        <i class="fa fa-eye-slash toggle-password" onclick="togglePasswordVisibility('password')"></i>
+                    </div>
+
+                    <div class="input-icon-container">
+                        <i class="fa fa-lock icon input-icon"></i>
+                        <input type="password" id="confirmPassword" class="form-control input-field"
+                            placeholder="Confirm Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                        <i class="fa fa-eye-slash toggle-password"
+                            onclick="togglePasswordVisibility('confirmPassword')"></i>
+                    </div>
+
+                    <!-- Terms and Conditions Checkbox -->
+                    <div class="checkbox-container">
+                        <label>
+                            <input type="checkbox" required>
+                            I agree to the <a href="/terms">Terms and
+                                Conditions</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="login-btn">SIGN UP</button>
+                </form>
+                <div class="account-action">
+                    <span>Already have an account?</span>
+                    <a href="/login">Login</a>
+                </div>
             </div>
-            <h2>Sign Up</h2>
-            <form id="signupForm">
-                <div class="input-icon-container">
-                    <i class="fa fa-user icon input-icon"></i>
-                    <input type="text" name="firstName" class="form-control input-field" placeholder="First Name"
-                        required>
-                </div>
-
-                <div class="input-icon-container">
-                    <i class="fa fa-user icon input-icon"></i>
-                    <input type="text" name="lastName" class="form-control input-field" placeholder="Last Name"
-                        required>
-                </div>
-
-                <div class="input-icon-container">
-                    <i class="fa fa-envelope icon input-icon"></i>
-                    <input type="email" name="email" class="form-control input-field" placeholder="E-mail" required>
-                </div>
-
-                <div class="input-icon-container">
-                    <i class="fa fa-id-card icon input-icon"></i>
-                    <input type="text" name="kfupmId" class="form-control input-field" placeholder="KFUPM ID" required
-                        pattern="20\d{7}" minlength="9" maxlength="9"
-                        title="KFUPM ID must be 9 digits long and start with '20'">
-                </div>
-
-                <fieldset class="input-icon-container">
-                    <legend>Please select your major:</legend> 
-                    <div class="radio-option">
-                        <input type="radio" id="SWE" name="major" value="Software Engineer">
-                        <label for="SWE">Software Engineer</label>
-                    </div>
-                    <div class="radio-option">
-                        <input type="radio" id="CS" name="major" value="Computer Science">
-                        <label for="CS">Computer Science</label>
-                    </div>
-                </fieldset>
-                
-                <fieldset class="input-icon-container">
-                    <legend>Please select your class level:</legend>
-                    <div class="radio-option">
-                        <input type="radio" id="Freshmen" name="classLevel" value="Freshmen">
-                        <label for="Freshmen">Freshmen (FR)</label>
-                    </div>
-                    <div class="radio-option">
-                        <input type="radio" id="Sophomore" name="classLevel" value="Sophomore">
-                        <label for="Sophomore">Sophomore (SO)</label>  
-                    </div>
-                    <div class="radio-option">
-                        <input type="radio" id="Junior" name="classLevel" value="Junior">
-                        <label for="Junior">Junior (JR)</label>  
-                    </div>
-                    <div class="radio-option">
-                        <input type="radio" id="Senior" name="classLevel" value="Senior">
-                        <label for="Senior">Senior (SR)</label>  
-                    </div>
-                </fieldset>
-
-
-                <div class="input-icon-container">
-                    <i class="fa fa-lock icon input-icon"></i>
-                    <input type="password" name="password" id="password" class="form-control input-field"
-                        placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                        title="Must contain at least one number, one uppercase letter, one lowercase letter, and at least 8 or more characters">
-                    <i class="fa fa-eye-slash toggle-password" onclick="togglePasswordVisibility('password')"></i>
-                </div>
-
-                <div class="input-icon-container">
-                    <i class="fa fa-lock icon input-icon"></i>
-                    <input type="password" id="confirmPassword" class="form-control input-field"
-                        placeholder="Confirm Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
-                    <i class="fa fa-eye-slash toggle-password"
-                        onclick="togglePasswordVisibility('confirmPassword')"></i>
-                </div>
-
-                <!-- Terms and Conditions Checkbox -->
-                <div class="checkbox-container">
-                    <label>
-                        <input type="checkbox" required>
-                        I agree to the <a href="/terms">Terms and
-                            Conditions</a>
-                    </label>
-                </div>
-
-                <button type="submit" class="login-btn">SIGN UP</button>
-            </form>
-            <div class="account-action">
-                <span>Already have an account?</span>
-                <a href="/login">Login</a>
+        </div>
+        <!-- Error Modal Structure -->
+        <div id="errorModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeErrorModal()">&times;</span>
+                <p id="errorText">Error message will be displayed here</p>
             </div>
         </div>
     </div>
-    <!-- Error Modal Structure -->
-    <div id="errorModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeErrorModal()">&times;</span>
-            <p id="errorText">Error message will be displayed here</p>
-        </div>
-    </div>
-
     <script src="js/auth.js" defer></script>
     <script src="js/login.js" defer></script>
 

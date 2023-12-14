@@ -40,16 +40,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-function showLoader() {
-    document.getElementById('loader').style.display = 'flex';
-}
-
-function hideLoader() {
-    document.getElementById('loader').style.display = 'none';
-}
-
-// Call hideLoader when the page finishes loading
-window.onload = hideLoader;
-
-// Show the loader when submitting the form
-document.getElementById('loginForm').addEventListener('submit', showLoader);
+document.addEventListener("DOMContentLoaded", function () {
+    // Set a timeout to delay hiding the loader
+    setTimeout(function () {
+        document.getElementById('mainContent').style.display = 'block';
+        document.querySelector('.loader').style.display = 'none';
+    }, 2500);
+});

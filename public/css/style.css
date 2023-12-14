@@ -1,7 +1,295 @@
-body {
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    height: 100%;
     background-image: linear-gradient(to right, #e4afcb 0%, #b8cbb8 0%, #b8cbb8 0%, #e2c58b 30%, #c2ce9c 64%, #7edbdc 100%);
     font-family: 'Onest', sans-serif;
     margin: 0;
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    --w: 10ch;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Onest', sans-serif;
+    font-size: 30px;
+    line-height: 1.4em;
+    letter-spacing: var(--w);
+    width: var(--w);
+    overflow: hidden;
+    white-space: nowrap;
+    color: #0000;
+    text-shadow:
+        calc(0*var(--w)) 0 #000, calc(-1*var(--w)) 0 #000, calc(-2*var(--w)) 0 #000, calc(-3*var(--w)) 0 #000, calc(-4*var(--w)) 0 #000,
+        calc(-5*var(--w)) 0 #000, calc(-6*var(--w)) 0 #000, calc(-7*var(--w)) 0 #000, calc(-8*var(--w)) 0 #000, calc(-9*var(--w)) 0 #000;
+    animation: l20 2s infinite linear;
+}
+
+.loader:before {
+    content: "KFUPM CC...";
+}
+
+@keyframes l20 {
+    9.09% {
+        text-shadow:
+            calc(0*var(--w)) -10px #000, calc(-1*var(--w)) 0 #000, calc(-2*var(--w)) 0 #000, calc(-3*var(--w)) 0 #000, calc(-4*var(--w)) 0 #000,
+            calc(-5*var(--w)) 0 #000, calc(-6*var(--w)) 0 #000, calc(-7*var(--w)) 0 #000, calc(-8*var(--w)) 0 #000, calc(-9*var(--w)) 0 #000
+    }
+
+    18.18% {
+        text-shadow:
+            calc(0*var(--w)) 0 #000, calc(-1*var(--w)) -10px #000, calc(-2*var(--w)) 0 #000, calc(-3*var(--w)) 0 #000, calc(-4*var(--w)) 0 #000,
+            calc(-5*var(--w)) 0 #000, calc(-6*var(--w)) 0 #000, calc(-7*var(--w)) 0 #000, calc(-8*var(--w)) 0 #000, calc(-9*var(--w)) 0 #000
+    }
+
+    27.27% {
+        text-shadow:
+            calc(0*var(--w)) 0 #000, calc(-1*var(--w)) 0 #000, calc(-2*var(--w)) -10px #000, calc(-3*var(--w)) 0 #000, calc(-4*var(--w)) 0 #000,
+            calc(-5*var(--w)) 0 #000, calc(-6*var(--w)) 0 #000, calc(-7*var(--w)) 0 #000, calc(-8*var(--w)) 0 #000, calc(-9*var(--w)) 0 #000
+    }
+
+    36.36% {
+        text-shadow:
+            calc(0*var(--w)) 0 #000, calc(-1*var(--w)) 0 #000, calc(-2*var(--w)) 0 #000, calc(-3*var(--w)) -10px #000, calc(-4*var(--w)) 0 #000,
+            calc(-5*var(--w)) 0 #000, calc(-6*var(--w)) 0 #000, calc(-7*var(--w)) 0 #000, calc(-8*var(--w)) 0 #000, calc(-9*var(--w)) 0 #000
+    }
+
+    45.45% {
+        text-shadow:
+            calc(0*var(--w)) 0 #000, calc(-1*var(--w)) 0 #000, calc(-2*var(--w)) 0 #000, calc(-3*var(--w)) 0 #000, calc(-4*var(--w)) -10px #000,
+            calc(-5*var(--w)) 0 #000, calc(-6*var(--w)) 0 #000, calc(-7*var(--w)) 0 #000, calc(-8*var(--w)) 0 #000, calc(-9*var(--w)) 0 #000
+    }
+
+    54.54% {
+        text-shadow:
+            calc(0*var(--w)) 0 #000, calc(-1*var(--w)) 0 #000, calc(-2*var(--w)) 0 #000, calc(-3*var(--w)) 0 #000, calc(-4*var(--w)) 0 #000,
+            calc(-5*var(--w)) -10px #000, calc(-6*var(--w)) 0 #000, calc(-7*var(--w)) 0 #000, calc(-8*var(--w)) 0 #000, calc(-9*var(--w)) 0 #000
+    }
+
+    63.63% {
+        text-shadow:
+            calc(0*var(--w)) 0 #000, calc(-1*var(--w)) 0 #000, calc(-2*var(--w)) 0 #000, calc(-3*var(--w)) 0 #000, calc(-4*var(--w)) 0 #000,
+            calc(-5*var(--w)) 0 #000, calc(-6*var(--w)) -10px #000, calc(-7*var(--w)) 0 #000, calc(-8*var(--w)) 0 #000, calc(-9*var(--w)) 0 #000
+    }
+
+    72.72% {
+        text-shadow:
+            calc(0*var(--w)) 0 #000, calc(-1*var(--w)) 0 #000, calc(-2*var(--w)) 0 #000, calc(-3*var(--w)) 0 #000, calc(-4*var(--w)) 0 #000,
+            calc(-5*var(--w)) 0 #000, calc(-6*var(--w)) 0 #000, calc(-7*var(--w)) -10px #000, calc(-8*var(--w)) 0 #000, calc(-9*var(--w)) 0 #000
+    }
+
+    81.81% {
+        text-shadow:
+            calc(0*var(--w)) 0 #000, calc(-1*var(--w)) 0 #000, calc(-2*var(--w)) 0 #000, calc(-3*var(--w)) 0 #000, calc(-4*var(--w)) 0 #000,
+            calc(-5*var(--w)) 0 #000, calc(-6*var(--w)) 0 #000, calc(-7*var(--w)) 0 #000, calc(-8*var(--w)) -10px #000, calc(-9*var(--w)) 0 #000
+    }
+
+    90.90% {
+        text-shadow:
+            calc(0*var(--w)) 0 #000, calc(-1*var(--w)) 0 #000, calc(-2*var(--w)) 0 #000, calc(-3*var(--w)) 0 #000, calc(-4*var(--w)) 0 #000,
+            calc(-5*var(--w)) 0 #000, calc(-6*var(--w)) 0 #000, calc(-7*var(--w)) 0 #000, calc(-8*var(--w)) 0 #000, calc(-9*var(--w)) -10px #000
+    }
+}
+
+.hero {
+    width: 100%;
+    height: 30vh;
+    background: #232323;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .box {
+        width: 250px;
+        height: 250px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .title {
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 50px;
+
+            .block {
+                width: 0%;
+                height: inherit;
+                background: #91f4a3;
+                position: absolute;
+                animation: mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+                display: flex;
+            }
+
+            h1 {
+                font-family: "Poppins";
+                color: #fff;
+                font-size: 32px;
+                -webkit-animation: mainFadeIn 2s forwards;
+                -o-animation: mainFadeIn 2s forwards;
+                animation: mainFadeIn 2s forwards;
+                animation-delay: 1.6s;
+                opacity: 0;
+                display: flex;
+                align-items: baseline;
+                position: relative;
+
+                span {
+                    width: 0px;
+                    height: 0px;
+                    -webkit-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    border-radius: 50%;
+
+                    background: #ffb510;
+                    -webkit-animation: load 0.6s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+                    animation: popIn 0.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+                    animation-delay: 2s;
+                    margin-left: 5px;
+                    margin-top: -10px;
+                    position: absolute;
+                    bottom: 13px;
+                    right: -12px;
+                }
+            }
+        }
+
+        .role {
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 30px;
+            margin-top: 25px;
+
+            .block {
+                width: 0%;
+                height: inherit;
+                background: #7edbdc;
+                position: absolute;
+                animation: secBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+                animation-delay: 2s;
+                display: flex;
+            }
+
+            p {
+                animation: secFadeIn 2s forwards;
+                animation-delay: 3.2s;
+                opacity: 0;
+                font-weight: 400;
+                font-family: "Lato";
+                color: #ffffff;
+                font-size: 12px;
+                text-transform: uppercase;
+                letter-spacing: 5px;
+            }
+        }
+    }
+}
+
+@keyframes mainBlock {
+    0% {
+        width: 0%;
+        left: 0;
+    }
+
+    50% {
+        width: 100%;
+        left: 0;
+    }
+
+    100% {
+        width: 0;
+        left: 100%;
+    }
+}
+
+@keyframes secBlock {
+    0% {
+        width: 0%;
+        left: 0;
+    }
+
+    50% {
+        width: 100%;
+        left: 0;
+    }
+
+    100% {
+        width: 0;
+        left: 100%;
+    }
+}
+
+@keyframes mainFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes popIn {
+    0% {
+        width: 0px;
+        height: 0px;
+        background: #e9d856;
+        border: 0px solid #ddd;
+        opacity: 0;
+    }
+
+    50% {
+        width: 10px;
+        height: 10px;
+        background: #e9d856;
+        opacity: 1;
+        bottom: 45px;
+    }
+
+    65% {
+        width: 7px;
+        height: 7px;
+        bottom: 0px;
+        width: 15px;
+    }
+
+    80% {
+        width: 10px;
+        height: 10px;
+        bottom: 20px;
+    }
+
+    100% {
+        width: 7px;
+        height: 7px;
+        background: #e9d856;
+        border: 0px solid #222;
+        bottom: 13px;
+    }
+}
+
+@keyframes secFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
 }
 
 header {
@@ -28,41 +316,27 @@ h1 a:hover {
     color: #86C323;
 }
 
-nav {
-    text-align: center;
+/* Navbar customization to fit Bootstrap's navbar */
+.navbar {
+    background-color: #182628 !important;
+    border-bottom: 5px solid #86C323;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: inline-block;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
+.navbar-brand,
+.nav-link {
+    color: #c9e994 !important;
     transition: color 0.6s ease;
-    padding: 5px 10px;
 }
 
-nav ul li a:hover,
-nav ul li a:focus {
-    color: #86C323;
-    background-color: #1D3835;
-    border-radius: 5px;
-    padding: 7px 12px;
+.navbar-nav .fa {
+    margin-right: 5px;
 }
 
-.content {
-    padding: 20px;
-    border-radius: 10px; /* Rounded corners */
-    margin: 20px; /* Spacing around content */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+.navbar-brand:hover,
+.nav-link:hover,
+.nav-link:focus {
+    color: #86C323 !important;
+    background-color: transparent !important;
 }
 
 .active {
@@ -72,73 +346,25 @@ nav ul li a:focus {
     padding: 7px 12px;
 }
 
+.container {
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .headerText {
     color: #333;
-    margin-top: 30px;
     text-align: center;
-    font-size: 1.8em; 
 }
 
 .paraText {
     color: #555;
-    margin: 0 15px;
     text-align: justify;
 }
 
-#hero h2,
-#hero p {
-    overflow: hidden;
-    border-right: .15em solid linear-gradient(to right, #65CCB8, #579aa5);
-    white-space: nowrap;
-    letter-spacing: .15em;
-    animation: typing 3.5s steps(30, end) forwards, blink-caret .75s step-end forwards;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 20px 0px 20px 0px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-#hero {
-    color: white;
-    text-align: center;
-    padding: 50px 0;
-    font-size: 2em;
-}
-
-@keyframes typing {
-    from {
-        width: 0
-    }
-
-    to {
-        width: 100%
-    }
-}
-
-@keyframes blink-caret {
-
-    from,
-    to {
-        border-color: transparent
-    }
-
-    50% {
-        border-color: linear-gradient(to right, #65CCB8, #579aa5);
-    }
-}
-
-#hero h2 {
-    animation: typing 3.5s steps(30, end) forwards,
-        blink-caret .75s step-end forwards;
-}
-
-#hero p {
-    animation: typing 5s steps(50, end) forwards,
-        blink-caret .75s step-end 5s forwards;
-    animation-delay: 3.5s;
-    /* Delay so it starts after the h2 */
+article:not(:last-child) {
+    padding-bottom: 200px;
 }
 
 strong a {
@@ -163,7 +389,7 @@ button:hover {
     color: #ECCECE;
 }
 
-
+/* Footer customization */
 footer {
     background-color: #182628;
     color: white;
@@ -172,31 +398,30 @@ footer {
     border-top: 5px solid #86C323;
 }
 
-a {
-    scroll-behavior: smooth;
-}
-
+/* Button customization to fit Bootstrap buttons */
 button {
+    background-color: #182628;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
     border-radius: 25px;
+    /* Rounded edges */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    /* Shadow effect */
 }
 
 button:hover {
+    background-color: #254E50;
+    color: #ECCECE;
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
     transform: translateY(-2px);
 }
 
-/* Responsive nav menu */
+/* Responsive media queries for smaller screens */
 @media (max-width: 768px) {
-    nav ul {
-        display: block;
+    .navbar-collapse {
         text-align: center;
-    }
-
-    nav ul li {
-        display: block;
-        margin: 10px 0;
     }
 }
 
@@ -239,38 +464,15 @@ input {
     line-height: normal;
 }
 
-#password {
-    background-image: url("../assets/visible.png");
-    background-position: 97% center;
-    background-repeat: no-repeat;
-}
-
-#password.visible {
-    background-image: url("../assets/invisible.png");
-}
-
-#toggle-password {
-    display: none;
-}
-
-#toggle-password+label {
-    text-indent: -9999px;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin-left: -32px;
-    cursor: pointer;
-}
-
 .centered-input {
     text-align: center;
 }
 
-
 #course-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    grid-template-rows: 1fr; /* Ensure a single row */
+    grid-template-rows: 1fr;
+    /* Ensure a single row */
     gap: 10px;
 }
 
@@ -284,9 +486,6 @@ input {
     width: 100%;
     height: 50px;
 }
-
-
-
 
 .semester-container {
     border: 2px dashed #ccc;
@@ -302,7 +501,7 @@ input {
     border-radius: 10px;
     padding: 10px;
     margin: 5px;
-  }
+}
 
 .term-scroll-container {
     width: 1000px;
@@ -311,10 +510,13 @@ input {
     white-space: nowrap;
     border: 2px dashed black;
     border-radius: 10px;
-    padding: 20px; /* Adjusted padding */
-    margin: 20px auto; /* Centered the container with auto margin */
+    padding: 20px;
+    /* Adjusted padding */
+    margin: 20px auto;
+    /* Centered the container with auto margin */
     display: flex;
-    align-items: center; /* Center items vertically */
+    align-items: center;
+    /* Center items vertically */
 }
 
 .term-container {
@@ -336,4 +538,4 @@ input {
     padding: 10px;
     margin: 5px;
     cursor: pointer;
-  }
+}

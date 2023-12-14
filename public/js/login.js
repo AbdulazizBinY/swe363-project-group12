@@ -8,9 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const loader = document.getElementById('loader'); // Reference to the loader element
         const errorMessageDiv = document.getElementById('errorMessage');
 
-        // Show the loader when the login process starts
-        loader.style.display = 'flex';
-
         try {
             const response = await fetch('/login', {
                 method: 'POST',
@@ -21,9 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             const result = await response.json();
-
-            // Hide the loader after receiving the response
-            loader.style.display = 'none';
 
             if (response.ok) {
                 // Redirect to home page on successful login
