@@ -81,8 +81,9 @@ app.get('/resourcesMainPage', async (req, res) => {
           }).toArray();
         //   { $regex: /^(?!ICS|SWE)/i}
         const nonMajorCourses = await coursesCollection.find({ shortcut: { $regex: /^(?!ICS|SWE)/i} }).toArray();
+        const totalCourses = await coursesCollection.find().toArray();
         console.log(req.session.user)
-          let allCourses= [majorCourses,nonMajorCourses,req.session.user]
+          let allCourses= [majorCourses,nonMajorCourses,req.session.user, totalCourses]
 
         // Render the profile page with the user's data
         res.render('resourcesMainPage', {  allCourses });
@@ -119,6 +120,22 @@ app.get("/schedule", async (req, res) => {
 });
 
 
+// Send terms info to the the DB 
+app.post("/sendData", (req,res) => {
+    try{
+
+        const db = client.db("KFUPMCC");
+        const usersCollection = db.collection("users");
+
+
+        client.close();
+        res.status(201).json({ message: 'Data added to MongoDB' });
+
+    }catch (error){
+        console.error('Error retrieving user profile:', error);
+        res.status(500).send('Internal Server Error');
+    }
+})
 
 
 
