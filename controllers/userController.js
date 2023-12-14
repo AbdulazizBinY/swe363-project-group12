@@ -36,7 +36,9 @@ exports.signup = async (req, res) => {
             kfupmId,
             major,
             classLevel,
-            password: hashedPassword
+            password: hashedPassword,
+            terms:[]
+
         });
 
         if (result.acknowledged) {
@@ -77,6 +79,7 @@ exports.login = async (req, res) => {
             major: user.major,  
             classLevel: user.classLevel, 
             email: user.email
+            terms: user.terms
         };
 
         res.status(200). json({ message: 'Login successful' });

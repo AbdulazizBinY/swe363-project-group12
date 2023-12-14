@@ -66,6 +66,8 @@ app.get("/resourcesList", (req, res) => {
 //     res.render("resourcesMainPage", { user: req.session.user });
 // });
 
+
+// resourcesMainPage route
 app.get('/resourcesMainPage', async (req, res) => {
     try {
         const db = client.db("KFUPMCC");
@@ -79,7 +81,7 @@ app.get('/resourcesMainPage', async (req, res) => {
           }).toArray();
         //   { $regex: /^(?!ICS|SWE)/i}
         const nonMajorCourses = await coursesCollection.find({ shortcut: { $regex: /^(?!ICS|SWE)/i} }).toArray();
-
+        console.log(req.session.user)
           let allCourses= [majorCourses,nonMajorCourses,req.session.user]
 
         // Render the profile page with the user's data
