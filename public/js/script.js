@@ -66,13 +66,6 @@ function drop(event) {
 
 
 
-
-
-
-
-
-
-
 function addTerm() {
     // Prompt the user for the term name
     var termName = prompt("Enter the term name (Term 2xx):");
