@@ -2,171 +2,214 @@
 <html lang="en">
 
 <head>
+    <!-- Meta tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title  -->
     <title>KFUPM CourseCraft</title>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500&family=Onest:wght@300&display=swap"
         rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400|Poppins:300,400,800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <!-- Link to CSS file -->
     <link rel="stylesheet" href="css/style.css" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 
 <body>
-    <header>
-        <h1><a href="/">KFUPM CourseCraft</a></h1>
-        <nav>
-            <ul>
-                <li><a class="active" href="#home">Home</a></li>
-                <li><a href="/schedule">Schedule</a></li>
-                <li><a href="/resourcesMainPage">Resources</a></li>
-                <% if (user) { %>
-                    <!-- Content to display if the user is logged in -->
-                    <li><a href="/profile">Profile</a></li>
-                    <li><a href="/logout">Log Out</a></li>
-                <% } else { %>
-                    <!-- Content to display if the user is not logged in -->
-                    <li><a href="/login">Login</a></li>
-                    <li><a href="/signup">Sign up</a></li>
-                <% } %>
-        </nav>
-        </ul>
-        </nav>
-    </header>
+    <div class="loader"></div>
+    <div id="mainContent" style="display: none;">
+        <header class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">KFUPM CourseCraft</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link active" href="/"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/schedule"><i class="fas fa-calendar-alt"></i>
+                            Schedule</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/resourcesMainPage"><i class="fas fa-book"></i>
+                            Resources</a></li>
+                    <% if (user) { %>
+                        <li class="nav-item"><a class="nav-link" href="/profile"><i class="fas fa-user"></i> Profile</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> Log
+                                Out</a></li>
+                        <% } else { %>
+                            <li class="nav-item"><a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>
+                                    Login</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/signup"><i class="fas fa-user-plus"></i>
+                                    Sign up</a></li>
+                            <% } %>
+                </ul>
+            </div>
+        </header>
 
-    <section id="hero">
-        <h2>Welcome to KFUPM CourseCraft</h2>
-        <p>Your ultimate tool for academic planning at KFUPM.</p>
-    </section>
+        <div class="hero">
+            <div class="box">
+                <div class="title">
+                    <div class="block"></div>
+                    <h1>KFUPM CourseCraft<span></span></h1>
+                </div>
+                <div class="role">
+                    <div class="block"></div>
+                    <p>Your ultimate tool for academic planning at KFUPM</p>
+                </div>
+            </div>
+        </div>
 
-    <div class="content">
-        <article>
-            <h2 class="headerText">What is KFUPM CourseCraft?</h2>
-            <p class="paraText">
-                KFUPM CourseCraft is a web application designed to enhance
-                the
-                academic planning and resource management experience for
-                students at
-                King Fahd University of Petroleum and Minerals (KFUPM). This
-                application addresses several issues with the current
-                system, known as
-                the Student Educational Planner (SEP), which students find
-                not
-                user-friendly and difficult to use.
-            </p>
-        </article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
 
-        <article>
-            <h2 class="headerText">Why KFUPM CourseCraft?</h2>
-            <div class="paraText">
-                <!-- Updated to div for proper styling -->
-                <ol>
-                    <li>
-                        <strong>Improved User Experience</strong>: Offering
-                        a smoother
-                        user experience for students while planning their
-                        future academic
-                        terms.
-                    </li>
-                    <li>
-                        <strong>Centralized Resource Access</strong>
-                        :Combining useful
-                        resources in one place, making it easier for
-                        students to find and
-                        utilize them.
-                    </li>
-                    <li>
-                        <strong>Key Requirements</strong>:
+                    <article>
+                        <h2 class="headerText">What is KFUPM CourseCraft?</h2>
+                        <p class="paraText">
+                            KFUPM CourseCraft is a web application designed to enhance
+                            the
+                            academic planning and resource management experience for
+                            students at
+                            King Fahd University of Petroleum and Minerals (KFUPM). This
+                            application addresses several issues with the current
+                            system, known as
+                            the Student Educational Planner (SEP), which students find
+                            not
+                            user-friendly and difficult to use.
+                        </p>
+                    </article>
+
+                    <article>
+                        <h2 class="headerText">Why KFUPM CourseCraft?</h2>
+                        <div class="paraText">
+                            <ol>
+                                <li>
+                                    <strong>Improved User Experience</strong>: Offering
+                                    a smoother
+                                    user experience for students while planning their
+                                    future academic
+                                    terms.
+                                </li>
+                                <li>
+                                    <strong>Centralized Resource Access</strong>
+                                    :Combining useful
+                                    resources in one place, making it easier for
+                                    students to find and
+                                    utilize them.
+                                </li>
+                                <li>
+                                    <strong>Key Requirements</strong>:
+                                    <ul>
+                                        <li>
+                                            <strong>Academic Planning</strong>: Enable
+                                            students to develop
+                                            and modify their academic plans, search for
+                                            courses, and check
+                                            for scheduling conflicts and prerequisite
+                                            fulfillment.
+                                        </li>
+                                        <li>
+                                            <strong>Course Resource Access</strong>:
+                                            Centralize access to
+                                            course materials and ensure ease of finding
+                                            necessary study
+                                            materials.
+                                        </li>
+                                        <li>
+                                            <strong>Instructor Evaluations</strong>:
+                                            Allow students to
+                                            provide feedback on instructors, and view
+                                            evaluations made by
+                                            others.
+                                        </li>
+                                        <li>
+                                            <strong>Administrative Features</strong>:
+                                            Provide
+                                            administrators with tools to moderate
+                                            content, handle
+                                            technical issues, and manage the platform.
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <strong>Non-functional Requirements</strong>: The
+                                    platform aims to
+                                    be user-friendly, responsive, secure, capable of
+                                    handling a
+                                    growing number of users, and accessible from various
+                                    devices.
+                                </li>
+                            </ol>
+                        </div>
+                    </article>
+
+                    <article>
+                        <h2 class="headerText">Schedule</h2>
+                        <p class="paraText">
+                            In the context of academic planning, a schedule would
+                            typically a way
+                            to plan and organize of courses over a semester or academic
+                            year. This
+                            could involve checking for scheduling conflicts.
+                        </p>
+                    </article>
+
+                    <article>
+                        <h2 class="headerText">Resources</h2>
+                        <p>
+                            Resources in KFUPM CourseCraft primarily include
+                            course-related
+                            materials. These could be lecture notes, study guides, past
+                            exam
+                            papers, or any other educational content relevant to the
+                            courses
+                            offered at KFUPM.
+                        </p>
                         <ul>
                             <li>
-                                <strong>Academic Planning</strong>: Enable
-                                students to develop
-                                and modify their academic plans, search for
-                                courses, and check
-                                for scheduling conflicts and prerequisite
-                                fulfillment.
+                                <strong>Functionality for Students</strong>: Students
+                                can download
+                                available resources for their courses.
                             </li>
                             <li>
-                                <strong>Course Resource Access</strong>:
-                                Centralize access to
-                                course materials and ensure ease of finding
-                                necessary study
-                                materials.
-                            </li>
-                            <li>
-                                <strong>Instructor Evaluations</strong>:
-                                Allow students to
-                                provide feedback on instructors, and view
-                                evaluations made by
-                                others.
-                            </li>
-                            <li>
-                                <strong>Administrative Features</strong>:
-                                Provide
-                                administrators with tools to moderate
-                                content, handle
-                                technical issues, and manage the platform.
+                                <strong>Process</strong>: The student, upon logging in
+                                and
+                                navigating to the resources section, selects the
+                                resource they wish
+                                to download. The system then initiates the download, and
+                                the student
+                                receives the downloaded resource.
                             </li>
                         </ul>
-                    </li>
-                    <li>
-                        <strong>Non-functional Requirements</strong>: The
-                        platform aims to
-                        be user-friendly, responsive, secure, capable of
-                        handling a
-                        growing number of users, and accessible from various
-                        devices.
-                    </li>
-                </ol>
+                    </article>
+                </div>
             </div>
-        </article>
+        </div>
 
-        <section id="scheduleSection">
-            <h2 class="headerText">Schedule</h2>
-            <p class="paraText">
-                In the context of academic planning, a schedule would
-                typically a way
-                to plan and organize of courses over a semester or academic
-                year. This
-                could involve checking for scheduling conflicts.
-            </p>
-        </section>
 
-        <section id="resourcesSection">
-            <h2 class="headerText">Resources</h2>
-            <p class="paraText">
-                Resources in KFUPM CourseCraft primarily include
-                course-related
-                materials. These could be lecture notes, study guides, past
-                exam
-                papers, or any other educational content relevant to the
-                courses
-                offered at KFUPM.
-            </p>
-            <ul class="paraText">
-                <li>
-                    <strong>Functionality for Students</strong>: Students
-                    can download
-                    available resources for their courses.
-                </li>
-                <li>
-                    <strong>Process</strong>: The student, upon logging in
-                    and
-                    navigating to the resources section, selects the
-                    resource they wish
-                    to download. The system then initiates the download, and
-                    the student
-                    receives the downloaded resource.
-                </li>
-            </ul>
-        </section>
+        <footer class="text-center py-3">
+            <p>&copy; 2023 KFUPM CourseCraft</p>
+        </footer>
     </div>
 
-    <footer>
-        <p>&copy; 2023 KFUPM CourseCraft</p>
-    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+
 </body>
 
 </html>

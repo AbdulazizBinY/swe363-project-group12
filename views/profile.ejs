@@ -2,63 +2,97 @@
 <html lang="en">
 
 <head>
-       <!-- Meta tags and Other links -->
-       <meta charset="utf-8" />
-       <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
+       <!-- Meta tags -->
+       <meta charset="UTF-8" />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+       <!-- Title  -->
+       <title>KFUPM CourseCraft</title>
+
+       <!-- Other links -->
        <link rel="preconnect" href="https://fonts.googleapis.com" />
        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
        <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500&family=Onest:wght@300&display=swap"
               rel="stylesheet" />
-       <!-- CSS links -->
-       <link href="css/style.css" rel="stylesheet" />
+
+       <!-- Bootstrap CSS -->
+       <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+       <!-- Font Awesome -->
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+       
+       <!-- Link to CSS file -->
+       <link rel="stylesheet" href="css/style.css" />
+
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body>
-       <header>
-              <h1><a href="/">KFUPM CourseCraft</a></h1>
-              <nav>
-                     <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/schedule">Schedule</a></li>
-                            <li><a href="/resourcesMainPage">Resources</a></li>
-                            <li><a class="active" href="#profile">Profile</a></li>
-                            <% if (user) { %>
-                                   <li><a href="/logout">Log Out</a></li>
-                                   <% } else { %>
-                                          <li><a href="/login">Login</a></li>
-                                          <li><a href="/signup">Signup</a></li>
-                                          <% } %>
-                     </ul>
-              </nav>
-       </header>
+       <div class="loader"></div>
+       <div id="mainContent" style="display: none;">
+              <header class="navbar navbar-expand-lg navbar-light bg-light">
+                     <a class="navbar-brand" href="/">KFUPM CourseCraft</a>
+                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                     </button>
+                     <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ml-auto">
+                                   <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home"></i>
+                                                 Home</a></li>
+                                   <li class="nav-item"><a class="nav-link" href="/schedule"><i
+                                                        class="fas fa-calendar-alt"></i>
+                                                 Schedule</a></li>
+                                   <li class="nav-item"><a class="nav-link" href="/resourcesMainPage"><i
+                                                        class="fas fa-book"></i>
+                                                 Resources</a></li>
+                                   <% if (user) { %>
+                                          <li class="nav-item"><a class="nav-link active" href="/profile"><i
+                                                               class="fas fa-user"></i> Profile</a>
+                                          </li>
+                                          <li class="nav-item"><a class="nav-link" href="/logout"><i
+                                                               class="fas fa-sign-out-alt"></i> Log
+                                                        Out</a></li>
+                                          <% } else { %>
+                                                 <li class="nav-item"><a class="nav-link" href="/login"><i
+                                                                      class="fas fa-sign-in-alt"></i>
+                                                               Login</a></li>
+                                                 <li class="nav-item"><a class="nav-link" href="/signup"><i
+                                                                      class="fas fa-user-plus"></i>
+                                                               Sign up</a></li>
+                                                 <% } %>
+                            </ul>
+                     </div>
+              </header>
 
-       <div class="profileDiv">
-              <h2 class="profile">User Profile</h2>
-              <div class="profilePicture">
-                     <img src="assets/User.jpeg" alt="profile Picture" />
+              <div class="profileDiv">
+                     <h2 class="profile">User Profile</h2>
+                     <div class="profilePicture">
+                            <img src="assets/User.jpeg" alt="profile Picture" />
+                     </div>
+                     <div class="name">
+                            <div class="labelDiv"><label>Name</label></div>
+                            <input disabled type="text" value="<%= user.name || '' %>" class="centered-input" />
+                     </div>
+                     <div class="major">
+                            <div class="labelDiv"><label>Major</label></div>
+                            <input disabled type="text" value="<%= user.major || '' %>" class="centered-input" />
+                     </div>
+                     <div class="level">
+                            <div class="labelDiv"><label>Class Level</label></div>
+                            <input disabled type="text" value="<%= user.classLevel || '' %>" class="centered-input" />
+                     </div>
+                     <div class="email">
+                            <div class="labelDiv"><label>Email</label></div>
+                            <input disabled type="email" value="<%= user.email || '' %>" class="centered-input" />
+                     </div>
               </div>
-              <div class="name">
-                     <div class="labelDiv"><label>Name</label></div>
-                     <input disabled type="text" value="<%= user.name || '' %>" class="centered-input"/>
-              </div>
-              <div class="major">
-                     <div class="labelDiv"><label>Major</label></div>
-                     <input disabled type="text" value="<%= user.major || '' %>" class="centered-input"/>
-              </div>
-              <div class="level">
-                     <div class="labelDiv"><label>Class Level</label></div>
-                     <input disabled type="text" value="<%= user.classLevel || '' %>" class="centered-input"/>
-              </div>
-              <div class="email">
-                     <div class="labelDiv"><label>Email</label></div>
-                     <input disabled type="email" value="<%= user.email || '' %>" class="centered-input"/>
-              </div>
+
+              <footer>
+                     <p>&copy; 2023 KFUPM CourseCraft</p>
+              </footer>
        </div>
-
-       <footer>
-              <p>&copy; 2023 KFUPM CourseCraft</p>
-       </footer>
-
        <script src="js/script.js" defer></script>
 </body>
 

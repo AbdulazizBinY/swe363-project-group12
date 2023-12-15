@@ -4,6 +4,7 @@ const MongoStore = require("connect-mongo");
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const signupRoutes = require("./routes/signupRoute");
 const loginRoutes = require("./routes/loginRoute");
+const ObjectId = require('mongodb').ObjectId;
 
 // Initialize Express app
 const app = express();
@@ -76,25 +77,21 @@ app.get('/resourcesMainPage', async (req, res) => {
         //const courses = await coursesCollection.find().toArray();
 
         //const majorCourses =  await courses.find({shortcut:"ICS"})
-         const majorCourses =  await coursesCollection.find({
+        const majorCourses = await coursesCollection.find({
             shortcut: { $regex: /^(ICS|SWE)/ }
-          }).toArray();
+        }).toArray();
         //   { $regex: /^(?!ICS|SWE)/i}
-        const nonMajorCourses = await coursesCollection.find({ shortcut: { $regex: /^(?!ICS|SWE)/i} }).toArray();
+        const nonMajorCourses = await coursesCollection.find({ shortcut: { $regex: /^(?!ICS|SWE)/i } }).toArray();
         const totalCourses = await coursesCollection.find().toArray();
-        console.log(req.session.user)
-          let allCourses= [majorCourses,nonMajorCourses,req.session.user, totalCourses]
+        let allCourses = [majorCourses, nonMajorCourses, req.session.user, totalCourses]
 
         // Render the profile page with the user's data
-        res.render('resourcesMainPage', {  allCourses });
+        res.render('resourcesMainPage', { allCourses });
     } catch (error) {
         console.error('Error retrieving user profile:', error);
         res.status(500).send('Internal Server Error');
     }
 });
-
-
-
 
 // schedule route
 app.get("/schedule", async (req, res) => {
@@ -114,18 +111,63 @@ app.get("/schedule", async (req, res) => {
 
         // If there's an error, pass an empty array for courses
         const allCourses = { courses: [], user: req.session.user };
-        
+
         res.render("schedule", { allCourses });
     }
 });
 
 
 // Send terms info to the the DB 
-app.post("/sendData", (req,res) => {
+app.post("/sendData", async(req,res) => {
     try{
 
         const db = client.db("KFUPMCC");
         const usersCollection = db.collection("users");
+        const coursesCollection= db.collection("Courses")
+
+        const user = await usersCollection.findOne({ kfupmId: req.session.user.kfupmId });
+
+
+        let listOfObjectCourses= req.body
+
+        // Array.from(listOfObjectCourses).forEach(term => {
+        //      term.courses.forEach(course => {
+        //         let courseObj =  coursesCollection.findOne({ shortcut: course });
+        //         course= courseObj._id
+        //     })
+        // })
+
+
+        async function processCourses() {
+            try {
+              for ( term of listOfObjectCourses) {
+                for ( course of term.courses) {
+                  // Assuming coursesCollection is a MongoDB collection
+                  let courseObj = await coursesCollection.findOne({ shortcut: course });
+          
+                  if (courseObj) {
+                    course = courseObj._id;
+                    console.log(course)
+                  } else {
+                    console.warn(`Course not found for shortcut: ${course}`);
+                  }
+                }
+              } console.log(listOfObjectCourses)
+            } catch (error) {
+              console.error('Error processing courses:', error);
+            }
+          }
+          console.log(listOfObjectCourses)
+          processCourses(); 
+        console.log(listOfObjectCourses)
+       //console.log(listOfObjectCourses)
+
+        await usersCollection.updateOne(
+            { _id: user._id },
+            { $set: { terms: listOfObjectCourses } }
+          );
+
+        //await collection.insertOne(req.body);
 
 
         client.close();
@@ -178,7 +220,6 @@ app.get('/profile', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
-
 
 // MongoDB connection setup
 const client = new MongoClient(mongoUri, {
