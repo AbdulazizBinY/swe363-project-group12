@@ -34,15 +34,14 @@
       color: #c9e994;
     }
 
-    .add-button{
+    .add-button {
       background-color: #182628;
       color: #c9e994;
     }
 
-    hr{
+    hr {
       background-color: #c9e994;
     }
-
   </style>
 
 </head>
@@ -89,35 +88,34 @@
 
 
 
-      <h3>Select your courses:</h3>
-      <div id="course-container">
-        <% allCourses.courses.forEach(item=> { %>
-          <div class="course-box" draggable="true" data-course="<%= item.shortcut %>">
-            <%= item.shortcut %>
-          </div>
-          <% }); %>
-      </div>
-
+    <h3>Select your courses:</h3>
+    <div id="course-container">
+      <% allCourses.courses.forEach(item=> { %>
+        <div class="course-box" draggable="true" data-course="<%= item.shortcut %>">
+          <%= item.shortcut %>
+        </div>
+        <% }); %>
     </div>
+
 
     <!--Plan Title-->
     <div>
       <h1 style="text-align: center;">Plan Your Semesters</h1>
       <h2 style="text-align: center;">SWE Major</h2>
 
-      <% if (allCourses.user) { %>                     
+      <% if (allCourses.user) { %>
 
-            <button onclick="loopOnTerms()" style="margin-left: 70rem; width: 10em; color: #c9e994;">
-              Save the plan
-          </button>
-          <% } else { %>
-
-
-            <% } %>
+        <button onclick="loopOnTerms()" style="align-items: center; width: 10em; color: #c9e994;">
+          Save the plan
+        </button>
+        <% } else { %>
 
 
+          <% } %>
 
-      <!-- <h3 style="text-align: center;">Plan <span>x</span></h3> -->
+
+
+            <!-- <h3 style="text-align: center;">Plan <span>x</span></h3> -->
     </div>
 
     <!--Plan-->
@@ -126,22 +124,20 @@
       <div class="term-container" id="term1" ondrop="drop(event)" ondragover="allowDrop(event)">
         <!-- Term content goes here -->
         <span class="termName">232</span>
-        <hr>
-    </div>
+      </div>
 
-    <div class="add-button" onclick="addTerm()">+</div>
+      <div class="add-button" onclick="addTerm()">+</div>
+
+
+
+    </div>
+    <footer>
+      <p>&copy; 2023 KFUPM CourseCraft</p>
+    </footer>
   </div>
 
-  
-  
-  
-
-  <footer>
-    <p>&copy; 2023 KFUPM CourseCraft</p>
-  </footer>
-
   <script src="js/script.js" defer></script>
-  
+
 </body>
 
 </html>

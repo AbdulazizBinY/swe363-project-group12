@@ -8,11 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function logout() {
     fetch('/api/logout', { method: 'POST' })
-    .then(response => {
-        if (response.ok) {
-            window.location.href = '/home'; // Redirect to home page
-        }
-    }).catch(error => console.error('Error:', error));
+        .then(response => {
+            if (response.ok) {
+                window.location.href = '/home'; // Redirect to home page
+            }
+        }).catch(error => console.error('Error:', error));
 }
 
 // Attach logout function to logout button if it exists
@@ -84,7 +84,6 @@ function drop(event) {
 function addTerm() {
     // Prompt the user for the term name
     var termName = prompt("Enter the term name (Term 2xx):");
-
     if (termName !== null && termName.trim() !== "") {
         // Trim the input to a maximum of 8 characters
         termName = termName.substring(0, 8);
@@ -127,10 +126,10 @@ function addTerm() {
 
 
 
-function loopOnTerms(){
+function loopOnTerms() {
     let externalDiv = document.getElementById("term-container");
     let divs = externalDiv.querySelectorAll('.term-container');
-    
+
     divs.forEach(div => {
         let term = new Term()
         let termNum = div.querySelector('.termName');
@@ -150,43 +149,42 @@ function loopOnTerms(){
 
 
 class Term {
- 
+
     constructor(termNumber, courses) {
-      this.termNumber = termNumber;
-      this.courses = courses || [];
+        this.termNumber = termNumber;
+        this.courses = courses || [];
     }
- 
+
     // addTermNumber
- 
+
     addCourse(course) {
         this.courses.push(course);
     }
- 
-    reomveCourse(course){
+
+    reomveCourse(course) {
         let indexToRemove = this.courses.indexOf(course);
- 
+
         if (indexToRemove !== -1) {
- 
+
             this.courses.splice(indexToRemove, 1);  // Use splice to remove the element
         }
     }
- 
-  }
-  let terms = []
+
+}
+let terms = []
 
 
-function sendDataToDB(data){
+function sendDataToDB(data) {
     fetch('/sendData', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
-      })
+    })
         .then(response => response.json())
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
-      
+
 }
 
-  
