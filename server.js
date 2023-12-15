@@ -123,12 +123,48 @@ app.post("/sendData", async(req,res) => {
 
         const db = client.db("KFUPMCC");
         const usersCollection = db.collection("users");
+        const coursesCollection= db.collection("Courses")
 
         const user = await usersCollection.findOne({ kfupmId: req.session.user.kfupmId });
 
+
+        let listOfObjectCourses= req.body
+
+        // Array.from(listOfObjectCourses).forEach(term => {
+        //      term.courses.forEach(course => {
+        //         let courseObj =  coursesCollection.findOne({ shortcut: course });
+        //         course= courseObj._id
+        //     })
+        // })
+
+
+        async function processCourses() {
+            try {
+              for ( term of listOfObjectCourses) {
+                for ( course of term.courses) {
+                  // Assuming coursesCollection is a MongoDB collection
+                  let courseObj = await coursesCollection.findOne({ shortcut: course });
+          
+                  if (courseObj) {
+                    course = courseObj._id;
+                    console.log(course)
+                  } else {
+                    console.warn(`Course not found for shortcut: ${course}`);
+                  }
+                }
+              } console.log(listOfObjectCourses)
+            } catch (error) {
+              console.error('Error processing courses:', error);
+            }
+          }
+          console.log(listOfObjectCourses)
+          processCourses(); 
+        console.log(listOfObjectCourses)
+       //console.log(listOfObjectCourses)
+
         await usersCollection.updateOne(
             { _id: user._id },
-            { $set: { terms: req.body } }
+            { $set: { terms: listOfObjectCourses } }
           );
 
         //await collection.insertOne(req.body);

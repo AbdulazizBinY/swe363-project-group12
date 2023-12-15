@@ -25,6 +25,26 @@
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+  <style>
+    .term-container {
+      background-color: #182628;
+    }
+
+    .termName {
+      color: #c9e994;
+    }
+
+    .add-button{
+      background-color: #182628;
+      color: #c9e994;
+    }
+
+    hr{
+      background-color: #c9e994;
+    }
+
+  </style>
+
 </head>
 
 <body>
@@ -58,14 +78,14 @@
       </div>
     </header>
 
-    <div class="left-box">
+    <!-- <div class="left-box">
       <h4>Select Level</h4>
       <select id="level-select">
         <option value="level1">Freshman</option>
         <option value="level2">Sophomore</option>
         <option value="level3">Junior</option>
         <option value="level4">Senior</option>
-      </select>
+      </select> -->
 
 
 
@@ -84,7 +104,20 @@
     <div>
       <h1 style="text-align: center;">Plan Your Semesters</h1>
       <h2 style="text-align: center;">SWE Major</h2>
-      <h3 style="text-align: center;">Plan <span>x</span></h3>
+
+      <% if (allCourses.user) { %>                     
+
+            <button onclick="loopOnTerms()" style="margin-left: 70rem; width: 10em; color: #c9e994;">
+              Save the plan
+          </button>
+          <% } else { %>
+
+
+            <% } %>
+
+
+
+      <!-- <h3 style="text-align: center;">Plan <span>x</span></h3> -->
     </div>
 
     <!--Plan-->
@@ -99,11 +132,7 @@
     <div class="add-button" onclick="addTerm()">+</div>
   </div>
 
-  <div class="saveBtn" style="margin-right: 100px;">
-    <button onclick="loopOnTerms()">
-      Save the plan
-    </button>
-  </div>
+  
   
   
 
